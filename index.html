@@ -1,23 +1,40 @@
 ﻿<!DOCTYPE html>
 <html lang="ja">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Personal Knowledge</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Personal Knowledge</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Personal Knowledge</h1>
+  <main class="container">
+    <header>
+      <h1>Personal Knowledge</h1>
+      <p>自分が実際に体験して学んだことを、未来の自分が見返せる形で整理する公開ナレッジベースです。</p>
+    </header>
 
-    <p>自分が実際に体験して学んだことを整理する公開ナレッジベース。</p>
+    <section class="card">
+      <h2>Articles</h2>
+      <ul>
+        <li><a href="travel/korea-first-trip.html">初海外で韓国へ行って学んだこと</a></li>
+        <li><a href="finance/household-finance-automation.html">Pythonで家計簿分析を自動化しようとして感じた限界</a></li>
+      </ul>
+    </section>
 
-    <h2>Categories</h2>
+    <section class="card">
+      <h2>Categories</h2>
+      <ul>
+        <li>travel: 旅行で学んだこと</li>
+        <li>detox: デジタルデトックス</li>
+        <li>github: GitHub / Issue運用</li>
+        <li>ai: ChatGPT・AI活用</li>
+        <li>finance: 家計・固定費・自動化ログ</li>
+      </ul>
+    </section>
 
-    <ul>
-        <li>travel</li>
-        <li>detox</li>
-        <li>github</li>
-        <li>ai</li>
-        <li>finance</li>
-    </ul>
+    <footer>
+      <p>AgentAir / Personal Knowledge</p>
+    </footer>
+  </main>
 </body>
 </html>

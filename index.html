@@ -7,33 +7,68 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <main class="container">
-    <header>
-      <h1>Personal Knowledge</h1>
-      <p>自分が実際に体験して学んだことを、未来の自分が見返せる形で整理する公開ナレッジベースです。</p>
-    </header>
+  <header class="site-header">
+    <div class="header-inner">
+      <div>
+        <p class="site-label">Personal Knowledge</p>
+        <h1>実体験を未来の自分へ残すナレッジログ</h1>
+        <p class="lead">
+          技術・生活改善・旅行・お金・AI活用など、実際に試して学んだことを整理する公開メモです。
+        </p>
+      </div>
+      <nav class="site-nav">
+        <a href="https://agentair.github.io/">Shin infra Lab</a>
+        <a href="index.html">Personal Knowledge</a>
+      </nav>
+    </div>
+  </header>
 
+  <main class="container">
     <section class="card">
+      <h2>About</h2>
+      <p>
+        このサイトは、技術ブログ「Shin infra Lab」と相互補完する個人ナレッジです。
+        Shin infra Labでは技術・資格・インフラ寄りの内容を扱い、
+        こちらでは旅行、生活改善、家計管理、AI活用など、実体験から得た知識を残します。
+      </p>
+    </section>
+
+    <section>
       <h2>Articles</h2>
-      <ul>
-        <li><a href="travel/korea-first-trip.html">初海外で韓国へ行って学んだこと</a></li>
-        <li><a href="finance/household-finance-automation.html">Pythonで家計簿分析を自動化しようとして感じた限界</a></li>
-      </ul>
+
+      <div class="article-grid">
+        <article class="article-card">
+          <p class="tag">Travel</p>
+          <h3><a href="travel/korea-first-trip.html">初海外で韓国へ行って学んだこと</a></h3>
+          <p>
+            初海外で実際に困ったこと、準備してよかったこと、次回の自分に残したい運用メモ。
+          </p>
+        </article>
+
+        <article class="article-card">
+          <p class="tag">Finance</p>
+          <h3><a href="finance/household-finance-automation.html">Pythonで家計簿分析を自動化しようとして感じた限界</a></h3>
+          <p>
+            楽天銀行・楽天カードCSVをPythonで集計しようとした取り組みと、継続できなかった理由の振り返り。
+          </p>
+        </article>
+      </div>
     </section>
 
     <section class="card">
       <h2>Categories</h2>
-      <ul>
-        <li>travel: 旅行で学んだこと</li>
-        <li>detox: デジタルデトックス</li>
-        <li>github: GitHub / Issue運用</li>
-        <li>ai: ChatGPT・AI活用</li>
-        <li>finance: 家計・固定費・自動化ログ</li>
-      </ul>
+      <div class="category-list">
+        <span>travel</span>
+        <span>detox</span>
+        <span>github</span>
+        <span>ai</span>
+        <span>finance</span>
+      </div>
     </section>
 
     <footer>
       <p>AgentAir / Personal Knowledge</p>
+      <p><a href="https://agentair.github.io/">Shin infra Lab</a> と相互補完する個人ナレッジサイトです。</p>
     </footer>
   </main>
 </body>

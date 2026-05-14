@@ -182,7 +182,10 @@
 
     .quick-nav a {
       flex: 0 0 auto;
-      padding: 8px 12px;
+      min-height: 42px;
+      display: inline-flex;
+      align-items: center;
+      padding: 8px 13px;
       border-radius: 999px;
       color: #27344a;
       background: #fff;
@@ -191,6 +194,134 @@
       font-size: 0.88rem;
       font-weight: 850;
       text-decoration: none;
+    }
+
+    .section.mission-board {
+      color: #fff;
+      background:
+        linear-gradient(135deg, rgba(17, 24, 39, 0.96), rgba(49, 46, 129, 0.9)),
+        repeating-linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0 2px, transparent 2px 22px);
+      border-color: rgba(255, 255, 255, 0.18);
+      box-shadow: 0 22px 58px rgba(17, 24, 39, 0.22);
+    }
+
+    .section.mission-board::before,
+    .raid-card::before,
+    .drop-zone::before {
+      position: absolute;
+      inset: 0 0 auto;
+      height: 8px;
+      content: "";
+      background: linear-gradient(90deg, var(--pink), var(--amber), var(--cyan));
+    }
+
+    .section.mission-board h2,
+    .section.mission-board .section-lead {
+      color: #fff;
+    }
+
+    .mission-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 1fr;
+      gap: 14px;
+    }
+
+    .mission-panel {
+      min-width: 0;
+      padding: 18px;
+      border-radius: 22px;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.05);
+    }
+
+    .mission-label {
+      display: inline-flex;
+      width: fit-content;
+      margin-bottom: 10px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.14);
+      color: #fde68a;
+      font-size: 0.78rem;
+      font-weight: 950;
+      letter-spacing: 0.08em;
+    }
+
+    .mission-panel strong {
+      display: block;
+      font-size: clamp(1.25rem, 5vw, 2rem);
+      line-height: 1.3;
+    }
+
+    .mission-list {
+      display: grid;
+      gap: 9px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .mission-list li {
+      display: grid;
+      grid-template-columns: 28px 1fr;
+      gap: 9px;
+      align-items: start;
+      color: rgba(255, 255, 255, 0.92);
+      font-weight: 800;
+      line-height: 1.5;
+    }
+
+    .mission-list li::before {
+      display: grid;
+      place-items: center;
+      width: 28px;
+      height: 28px;
+      content: "✓";
+      border-radius: 9px;
+      color: #111827;
+      background: #fde68a;
+      font-size: 0.82rem;
+      font-weight: 950;
+    }
+
+    .mission-list.warning li::before {
+      content: "!";
+      color: #fff;
+      background: linear-gradient(135deg, var(--amber), var(--red));
+    }
+
+    .judgement-table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      background: #fff;
+      box-shadow: 0 10px 26px rgba(15, 23, 42, 0.06);
+    }
+
+    .judgement-table th,
+    .judgement-table td {
+      padding: 14px;
+      border-bottom: 1px solid var(--line);
+      text-align: left;
+      vertical-align: top;
+      font-weight: 760;
+      line-height: 1.5;
+    }
+
+    .judgement-table tr:last-child th,
+    .judgement-table tr:last-child td {
+      border-bottom: 0;
+    }
+
+    .judgement-table th {
+      width: 34%;
+      color: #1e3a8a;
+      background: #eef6ff;
+      font-weight: 950;
     }
 
     .section,
@@ -329,11 +460,25 @@
     }
 
     .timeline {
+      position: relative;
       display: grid;
       gap: 12px;
     }
 
+    .timeline::before {
+      position: absolute;
+      left: 53px;
+      top: 14px;
+      bottom: 14px;
+      width: 3px;
+      content: "";
+      border-radius: 999px;
+      background: linear-gradient(180deg, var(--pink), var(--cyan));
+      opacity: 0.35;
+    }
+
     .slot {
+      position: relative;
       display: grid;
       grid-template-columns: 78px 1fr;
       gap: 12px;
@@ -342,6 +487,19 @@
       border-radius: 22px;
       background: linear-gradient(135deg, #ffffff, #f8fbff);
       border: 1px solid var(--line);
+    }
+
+    .slot::after {
+      position: absolute;
+      left: 48px;
+      top: 36px;
+      width: 13px;
+      height: 13px;
+      content: "";
+      border-radius: 999px;
+      background: #fff;
+      border: 3px solid var(--pink);
+      box-shadow: 0 0 0 5px rgba(255, 95, 143, 0.12);
     }
 
     .time {
@@ -466,19 +624,162 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
+      gap: 7px;
       min-height: 44px;
       width: fit-content;
       max-width: 100%;
-      padding: 10px 14px;
+      padding: 11px 15px;
       border-radius: 999px;
       color: #fff;
-      background: linear-gradient(135deg, var(--violet), var(--blue));
+      background: linear-gradient(135deg, #0f766e, var(--blue));
       box-shadow: 0 10px 22px rgba(37, 99, 235, 0.18);
       font-size: 0.9rem;
       font-weight: 900;
       line-height: 1.2;
       text-align: center;
       text-decoration: none;
+    }
+
+    .map-button::after {
+      content: "↗";
+      font-size: 0.82rem;
+      line-height: 1;
+      opacity: 0.9;
+    }
+
+    .raid-card {
+      padding: clamp(18px, 4vw, 28px);
+      border-radius: 28px;
+      background:
+        linear-gradient(135deg, rgba(255, 247, 237, 0.98), rgba(239, 246, 255, 0.96)),
+        repeating-linear-gradient(135deg, rgba(245, 158, 11, 0.09) 0 2px, transparent 2px 20px);
+      border: 1px solid rgba(245, 158, 11, 0.28);
+      box-shadow: 0 18px 44px rgba(245, 158, 11, 0.12);
+    }
+
+    .raid-card h3 {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-items: center;
+      font-size: clamp(1.55rem, 7vw, 2.5rem);
+      letter-spacing: 0;
+    }
+
+    .raid-card h3::after {
+      content: "60-90 MIN";
+      padding: 6px 10px;
+      border-radius: 999px;
+      color: #fff;
+      background: linear-gradient(135deg, var(--red), var(--amber));
+      font-size: 0.78rem;
+      font-weight: 950;
+    }
+
+    .raid-intel {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+      margin: 12px 0;
+    }
+
+    .raid-intel div {
+      padding: 14px;
+      border-radius: 18px;
+      background: #fff;
+      border: 1px solid var(--line);
+      font-weight: 820;
+      line-height: 1.5;
+    }
+
+    .photo-card {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .photo-card::before {
+      display: none;
+    }
+
+    .photo-card .photo-main {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      min-width: 0;
+      font-weight: 820;
+      line-height: 1.4;
+    }
+
+    .photo-card .photo-main::before {
+      flex: 0 0 auto;
+      display: grid;
+      place-items: center;
+      width: 24px;
+      height: 24px;
+      content: "";
+      border-radius: 7px;
+      background: #eef2ff;
+      border: 2px solid #7c3aed;
+      box-shadow: inset 0 0 0 3px #fff;
+    }
+
+    .photo-card .map-button {
+      min-height: 38px;
+      padding: 8px 11px;
+      font-size: 0.8rem;
+    }
+
+    .drop-zone {
+      color: #fff;
+      background:
+        linear-gradient(135deg, rgba(15, 23, 42, 0.96), rgba(127, 29, 29, 0.88)),
+        repeating-linear-gradient(45deg, rgba(255, 255, 255, 0.08) 0 2px, transparent 2px 22px);
+      border-color: rgba(255, 255, 255, 0.16);
+    }
+
+    .drop-zone h2,
+    .drop-zone .section-lead {
+      color: #fff;
+    }
+
+    .drop-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .drop-card {
+      min-width: 0;
+      padding: 16px;
+      border-radius: 20px;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+    }
+
+    .drop-card h4 {
+      margin: 0 0 8px;
+      color: #fde68a;
+      font-size: 1.08rem;
+    }
+
+    .drop-card p {
+      margin: 0;
+      color: rgba(255, 255, 255, 0.88);
+      font-weight: 720;
+      line-height: 1.55;
+    }
+
+    .drop-message {
+      margin: 16px 0 0;
+      padding: 16px;
+      border-radius: 20px;
+      background: rgba(255, 255, 255, 0.14);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      font-size: clamp(1.05rem, 4vw, 1.45rem);
+      font-weight: 950;
+      line-height: 1.45;
     }
 
     .check-grid {
@@ -527,6 +828,10 @@
       gap: 10px;
       font-weight: 820;
       line-height: 1.4;
+    }
+
+    .photo-check.photo-card::before {
+      display: none;
     }
 
     .source-grid {
@@ -649,6 +954,9 @@
       .day-strip,
       .badge-row,
       .rule-grid,
+      .mission-grid,
+      .raid-intel,
+      .drop-grid,
       .spot-grid,
       .check-grid,
       .source-grid,
@@ -671,6 +979,19 @@
         display: grid;
       }
 
+      .judgement-table,
+      .judgement-table tbody,
+      .judgement-table tr,
+      .judgement-table th,
+      .judgement-table td {
+        display: block;
+        width: 100%;
+      }
+
+      .judgement-table th {
+        border-bottom: 0;
+      }
+
       .route-flow span:not(:last-child)::after {
         right: 50%;
         top: auto;
@@ -690,6 +1011,15 @@
       }
 
       .slot {
+        grid-template-columns: 1fr;
+      }
+
+      .timeline::before,
+      .slot::after {
+        display: none;
+      }
+
+      .photo-card {
         grid-template-columns: 1fr;
       }
 
@@ -727,9 +1057,9 @@
 
     <section class="hero" aria-labelledby="page-title">
       <div class="hero-content">
-        <p class="eyebrow">週末巡礼しおり / スマホ実用版</p>
-        <h1 id="page-title">超かぐや姫 立川週末しおり</h1>
-        <p class="subtitle">金曜は横浜合流、反町、大宮グッズ回収、都心MV回収。土曜は立川全集中。日曜は羽田優先。地図リンクは現地確認用で、画像や外部本文コピーは使わない。</p>
+        <p class="eyebrow">週末限定ミッション / スマホ実用版</p>
+        <h1 id="page-title">超かぐや姫 聖地巡礼ミッションボード</h1>
+        <p class="subtitle">兄弟で見る攻略しおり。金曜は横浜合流、反町、大宮グッズ回収、都心MV回収。土曜は立川全集中。日曜は羽田優先。</p>
 
         <div class="day-strip" aria-label="3日間の概要">
           <div class="day-chip">
@@ -748,42 +1078,61 @@
       </div>
     </section>
 
+    <section class="section mission-board" id="mission">
+      <h2>MISSION BOARD</h2>
+      <p class="section-lead">単なる旅行メモではなく、週末で回収する作戦書。迷ったらここに戻って優先順位を確認する。</p>
+      <div class="mission-grid">
+        <div class="mission-panel">
+          <span class="mission-label">MISSION</span>
+          <strong>兄弟で超かぐや姫の聖地を回収せよ</strong>
+        </div>
+        <div class="mission-panel">
+          <span class="mission-label">CLEAR CONDITION</span>
+          <strong>日曜 14:30〜15:00 に羽田空港到着</strong>
+        </div>
+        <div class="mission-panel">
+          <span class="mission-label">MAIN QUEST</span>
+          <ul class="mission-list">
+            <li>反町 MEN YARD FIGHT を回収</li>
+            <li>大宮でグッズを確保</li>
+            <li>立川を全集中で巡礼</li>
+            <li>日曜は羽田に無事到着</li>
+          </ul>
+        </div>
+        <div class="mission-panel">
+          <span class="mission-label">WARNING</span>
+          <ul class="mission-list warning">
+            <li>金曜は夜行バス明けなので無理しない</li>
+            <li>土曜は立川優先</li>
+            <li>予定が押したら余力枠を捨てる</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
     <nav class="quick-nav" aria-label="ページ内ナビゲーション">
-      <a href="#rules">整理</a>
+      <a href="#mission">Mission</a>
       <a href="#day1">Day 1</a>
       <a href="#day2">Day 2</a>
       <a href="#day3">Day 3</a>
-      <a href="#spots">地図付きリスト</a>
-      <a href="#goods">大宮チェック</a>
-      <a href="#manners">マナー</a>
-      <a href="#skip">捨て枠</a>
+      <a href="#spots">Map</a>
+      <a href="#photos">Photo</a>
+      <a href="#drop">Drop</a>
+      <a href="#manners">Manners</a>
     </nav>
 
     <section class="section" id="rules">
       <h2>🧭 聖地 / 非聖地の整理</h2>
       <p class="section-lead">当日迷わないための扱いを先に固定する。大宮は金曜に行くが、目的は聖地巡礼ではなくグッズ回収。</p>
-      <div class="rule-grid">
-        <div class="rule">
-          <strong>横浜駅</strong>
-          <p>弟との合流地点。聖地ではない。</p>
-        </div>
-        <div class="rule">
-          <strong>反町 / MEN YARD FIGHT</strong>
-          <p>神奈川県側の聖地候補。短時間で外観確認。</p>
-        </div>
-        <div class="rule">
-          <strong>大宮</strong>
-          <p>聖地ではなく、超かぐや姫グッズ回収スポット。</p>
-        </div>
-        <div class="rule">
-          <strong>立川</strong>
-          <p>今回のメイン聖地。土曜を丸ごと使う。</p>
-        </div>
-        <div class="rule">
-          <strong>羽田</strong>
-          <p>帰りの空港。聖地ではない。日曜の最優先。</p>
-        </div>
-      </div>
+      <table class="judgement-table">
+        <tbody>
+          <tr><th>横浜駅</th><td>合流地点。聖地ではない。</td></tr>
+          <tr><th>反町 / MEN YARD FIGHT</th><td>神奈川県側の聖地候補。短時間で外観確認。</td></tr>
+          <tr><th>大宮</th><td>聖地ではなくグッズ回収スポット。</td></tr>
+          <tr><th>立川</th><td>今回のメイン聖地。土曜を丸ごと使う。</td></tr>
+          <tr><th>羽田</th><td>帰りの空港。聖地ではない。</td></tr>
+        </tbody>
+      </table>
     </section>
 
     <section class="section" aria-labelledby="badge-title">
@@ -815,7 +1164,7 @@
     <article class="day-card" id="day1">
       <span class="day-title">Day 1</span>
       <div class="day-head">
-        <h2>🚉 金曜：横浜合流・反町聖地・大宮グッズ回収・都心MV回収日</h2>
+        <h2>🚉 Day 1：横浜合流・反町聖地・大宮グッズ回収・都心MV回収日</h2>
         <div class="day-meta">
           <span class="badge must">横浜合流</span>
           <span class="badge must">大宮グッズ回収</span>
@@ -825,13 +1174,13 @@
 
       <div class="route-flow" aria-label="金曜ルート">
         <span>横浜駅</span>
-        <span>反町</span>
+        <span>MEN YARD FIGHT</span>
         <span>大宮</span>
         <span>渋谷</span>
         <span>下北沢</span>
         <span>六本木</span>
         <span>赤坂</span>
-        <span>川崎・八丁畷</span>
+        <span>川崎帰還</span>
       </div>
 
       <div class="timeline">
@@ -892,7 +1241,7 @@
     <article class="day-card" id="day2">
       <span class="day-title">Day 2</span>
       <div class="day-head">
-        <h2>🏙️ 土曜：立川全集中日</h2>
+        <h2>🏙️ Day 2：立川全集中日</h2>
         <div class="day-meta">
           <span class="badge must">今回のメイン巡礼日</span>
           <span class="badge must">立川</span>
@@ -906,9 +1255,10 @@
         <span>ルミネ</span>
         <span>立川北口</span>
         <span>GREEN SPRINGS</span>
+        <span>多摩モノレール</span>
         <span>砂川七番</span>
         <span>西松屋</span>
-        <span>川崎・八丁畷</span>
+        <span>川崎帰還</span>
       </div>
 
       <div class="timeline">
@@ -967,12 +1317,20 @@
     <article class="day-card" id="day3">
       <span class="day-title">Day 3</span>
       <div class="day-head">
-        <h2>✈️ 日曜：羽田移動優先日</h2>
+        <h2>✈️ Day 3：羽田移動優先日</h2>
         <div class="day-meta">
           <span class="badge must">14:30〜15:00 羽田着目標</span>
           <span class="badge skip">大宮再訪なし</span>
           <span class="badge skip">立川再訪なし</span>
         </div>
+      </div>
+
+      <div class="route-flow" aria-label="日曜ルート">
+        <span>川崎・八丁畷</span>
+        <span>荷物整理</span>
+        <span>取りこぼし確認</span>
+        <span>羽田空港</span>
+        <span>南紀白浜</span>
       </div>
 
       <div class="timeline">
@@ -1026,8 +1384,15 @@
         </div>
       </div>
 
-      <div class="spot-section" id="goods">
-        <h3>大宮グッズ回収</h3>
+      <div class="spot-section raid-card" id="goods">
+        <h3>OMIYA GOODS RAID</h3>
+        <p class="section-lead">大宮は聖地ではなく、金曜の物販レイド。目的はグッズ棚の確認と確保で、都心回収が崩れそうなら即撤退。</p>
+        <div class="raid-intel">
+          <div>第一候補: ビックカメラ大宮西口そごう店</div>
+          <div>余力候補: アニメイト大宮</div>
+          <div>さらに余力: DiCE大宮店</div>
+          <div>撤退ライン: 都心回収が崩れそうなら切り上げる</div>
+        </div>
         <div class="spot-grid">
           <article class="spot-card">
             <h4>ビックカメラ大宮西口そごう店</h4>
@@ -1039,13 +1404,13 @@
             <h4>アニメイト大宮</h4>
             <div class="spot-meta"><span class="badge maybe">余力</span></div>
             <p>ビックカメラ後に時間と体力があれば確認する。</p>
-            <a class="map-button" href="https://www.google.com/maps/search/?api=1&amp;query=アニメイト大宮" target="_blank" rel="noopener">地図を開く</a>
+            <a class="map-button" href="https://www.google.com/maps/search/?api=1&amp;query=アニメイト大宮" target="_blank" rel="noopener">Google Mapで開く</a>
           </article>
           <article class="spot-card">
             <h4>DiCE大宮店</h4>
             <div class="spot-meta"><span class="badge maybe">余力</span></div>
             <p>かなり余裕がある場合だけ確認。予定が押したら最初に削る。</p>
-            <a class="map-button" href="https://www.google.com/maps/search/?api=1&amp;query=DiCE%20大宮店" target="_blank" rel="noopener">地図を開く</a>
+            <a class="map-button" href="https://www.google.com/maps/search/?api=1&amp;query=DiCE%20大宮店" target="_blank" rel="noopener">Google Mapで開く</a>
           </article>
         </div>
 
@@ -1053,6 +1418,7 @@
           <div class="check-item">ビックカメラ大宮西口そごう店を見る</div>
           <div class="check-item">超かぐや姫グッズ棚を確認</div>
           <div class="check-item">缶バッジ・アクスタ・クリアファイル系を見る</div>
+          <div class="check-item">在庫は一期一会として判断する</div>
           <div class="check-item">在庫がなければ深追いしない</div>
           <div class="check-item">1時間〜1時間半で切り上げる</div>
           <div class="check-item">買いすぎ注意</div>
@@ -1090,13 +1456,13 @@
             <h4>六本木ヒルズ</h4>
             <div class="spot-meta"><span class="badge maybe">余力</span></div>
             <p>夜の余力枠。疲れていたら切る。</p>
-            <a class="map-button" href="https://www.google.com/maps/search/?api=1&amp;query=六本木ヒルズ" target="_blank" rel="noopener">地図を開く</a>
+            <a class="map-button" href="https://www.google.com/maps/search/?api=1&amp;query=六本木ヒルズ" target="_blank" rel="noopener">Google Mapで開く</a>
           </article>
           <article class="spot-card">
             <h4>毛利庭園</h4>
             <div class="spot-meta"><span class="badge maybe">余力</span></div>
             <p>六本木ヒルズとセットで確認。閉園や混雑に注意。</p>
-            <a class="map-button" href="https://www.google.com/maps/search/?api=1&amp;query=毛利庭園" target="_blank" rel="noopener">地図を開く</a>
+            <a class="map-button" href="https://www.google.com/maps/search/?api=1&amp;query=毛利庭園" target="_blank" rel="noopener">Google Mapで開く</a>
           </article>
           <article class="spot-card">
             <h4>福吉坂</h4>
@@ -1108,7 +1474,7 @@
             <h4>東京ドーム</h4>
             <div class="spot-meta"><span class="badge maybe">余力</span></div>
             <p>金曜に押したら削る候補。優先度は低い。</p>
-            <a class="map-button" href="https://www.google.com/maps/search/?api=1&amp;query=東京ドーム" target="_blank" rel="noopener">地図を開く</a>
+            <a class="map-button" href="https://www.google.com/maps/search/?api=1&amp;query=東京ドーム" target="_blank" rel="noopener">Google Mapで開く</a>
           </article>
         </div>
       </div>
@@ -1118,13 +1484,13 @@
         <div class="spot-grid">
           <article class="spot-card"><h4>ファミリーマート立川諏訪通り店</h4><div class="spot-meta"><span class="badge must">必須</span></div><p>浴衣シーン候補。店舗前では通行と入店客優先。</p><a class="map-button" href="https://www.google.com/maps/search/?api=1&amp;query=ファミリーマート%20立川諏訪通り店" target="_blank" rel="noopener">Google Mapで開く</a></article>
           <article class="spot-card"><h4>No.2南口ビル</h4><div class="spot-meta"><span class="badge want">できれば行く</span></div><p>浴衣シーン候補。建物周辺は短時間で確認。</p><a class="map-button" href="https://www.google.com/maps/search/?api=1&amp;query=No.2南口ビル%20立川" target="_blank" rel="noopener">Google Mapで開く</a></article>
-          <article class="spot-card"><h4>ZEST bis</h4><div class="spot-meta"><span class="badge maybe">余力</span></div><p>南口周辺の細かい回収候補。</p><a class="map-button" href="https://www.google.com/maps/search/?api=1&amp;query=ZEST%20bis%20立川" target="_blank" rel="noopener">地図を開く</a></article>
-          <article class="spot-card"><h4>立川自習室付近</h4><div class="spot-meta"><span class="badge maybe">余力</span><span class="badge warn">注意して見るだけ</span></div><p>細かい回収候補。長居しない。</p><a class="map-button" href="https://www.google.com/maps/search/?api=1&amp;query=立川自習室" target="_blank" rel="noopener">地図を開く</a></article>
+          <article class="spot-card"><h4>ZEST bis</h4><div class="spot-meta"><span class="badge maybe">余力</span></div><p>南口周辺の細かい回収候補。</p><a class="map-button" href="https://www.google.com/maps/search/?api=1&amp;query=ZEST%20bis%20立川" target="_blank" rel="noopener">Google Mapで開く</a></article>
+          <article class="spot-card"><h4>立川自習室付近</h4><div class="spot-meta"><span class="badge maybe">余力</span><span class="badge warn">注意して見るだけ</span></div><p>細かい回収候補。長居しない。</p><a class="map-button" href="https://www.google.com/maps/search/?api=1&amp;query=立川自習室" target="_blank" rel="noopener">Google Mapで開く</a></article>
           <article class="spot-card"><h4>東急ストア 立川駅南口店</h4><div class="spot-meta"><span class="badge must">必須</span></div><p>彩葉のバイト先候補・買い出しシーン候補。店舗ルール優先。</p><a class="map-button" href="https://www.google.com/maps/search/?api=1&amp;query=東急ストア%20立川駅南口店" target="_blank" rel="noopener">Google Mapで開く</a></article>
           <article class="spot-card"><h4>多摩モノレール 立川南駅</h4><div class="spot-meta"><span class="badge must">必須</span></div><p>砂川七番へ向かう移動の起点候補。</p><a class="map-button" href="https://www.google.com/maps/search/?api=1&amp;query=立川南駅" target="_blank" rel="noopener">Google Mapで開く</a></article>
           <article class="spot-card"><h4>柴崎町三丁目交差点</h4><div class="spot-meta"><span class="badge want">できれば行く</span></div><p>南口周辺の細かい回収候補。</p><a class="map-button" href="https://www.google.com/maps/search/?api=1&amp;query=柴崎町三丁目%20立川" target="_blank" rel="noopener">Google Mapで開く</a></article>
-          <article class="spot-card"><h4>タイムズ立川柴崎町3丁目</h4><div class="spot-meta"><span class="badge maybe">余力</span></div><p>周辺確認候補。駐車場利用者の邪魔をしない。</p><a class="map-button" href="https://www.google.com/maps/search/?api=1&amp;query=タイムズ立川柴崎町3丁目" target="_blank" rel="noopener">地図を開く</a></article>
-          <article class="spot-card"><h4>柴崎町3丁目バス停</h4><div class="spot-meta"><span class="badge maybe">余力</span></div><p>バス利用者の動線をふさがない。</p><a class="map-button" href="https://www.google.com/maps/search/?api=1&amp;query=柴崎町3丁目%20バス停%20立川" target="_blank" rel="noopener">地図を開く</a></article>
+          <article class="spot-card"><h4>タイムズ立川柴崎町3丁目</h4><div class="spot-meta"><span class="badge maybe">余力</span></div><p>周辺確認候補。駐車場利用者の邪魔をしない。</p><a class="map-button" href="https://www.google.com/maps/search/?api=1&amp;query=タイムズ立川柴崎町3丁目" target="_blank" rel="noopener">Google Mapで開く</a></article>
+          <article class="spot-card"><h4>柴崎町3丁目バス停</h4><div class="spot-meta"><span class="badge maybe">余力</span></div><p>バス利用者の動線をふさがない。</p><a class="map-button" href="https://www.google.com/maps/search/?api=1&amp;query=柴崎町3丁目%20バス停%20立川" target="_blank" rel="noopener">Google Mapで開く</a></article>
           <article class="spot-card"><h4>立川南通り</h4><div class="spot-meta"><span class="badge want">できれば行く</span></div><p>南口の移動中に雰囲気を確認。</p><a class="map-button" href="https://www.google.com/maps/search/?api=1&amp;query=立川南通り" target="_blank" rel="noopener">Google Mapで開く</a></article>
         </div>
       </div>
@@ -1138,8 +1504,8 @@
           <article class="spot-card"><h4>プラウドタワー立川</h4><div class="spot-meta"><span class="badge want">できれば行く</span><span class="badge warn">注意して見るだけ</span></div><p>マンション周辺は敷地に入らず短時間。</p><a class="map-button" href="https://www.google.com/maps/search/?api=1&amp;query=プラウドタワー立川" target="_blank" rel="noopener">Google Mapで開く</a></article>
           <article class="spot-card"><h4>サンサンロード</h4><div class="spot-meta"><span class="badge must">必須</span></div><p>北口からGREEN SPRINGS方面へつなぐ動線。</p><a class="map-button" href="https://www.google.com/maps/search/?api=1&amp;query=サンサンロード%20立川" target="_blank" rel="noopener">Google Mapで開く</a></article>
           <article class="spot-card"><h4>シネマシティ</h4><div class="spot-meta"><span class="badge want">できれば行く</span></div><p>北口回収候補。上映や来場者の邪魔をしない。</p><a class="map-button" href="https://www.google.com/maps/search/?api=1&amp;query=立川シネマシティ" target="_blank" rel="noopener">Google Mapで開く</a></article>
-          <article class="spot-card"><h4>akari cafe</h4><div class="spot-meta"><span class="badge maybe">余力</span></div><p>休憩候補。混雑していたら無理しない。</p><a class="map-button" href="https://www.google.com/maps/search/?api=1&amp;query=akari%20cafe%20立川" target="_blank" rel="noopener">地図を開く</a></article>
-          <article class="spot-card"><h4>たましん美術館</h4><div class="spot-meta"><span class="badge maybe">余力</span></div><p>北口周辺の確認候補。</p><a class="map-button" href="https://www.google.com/maps/search/?api=1&amp;query=たましん美術館" target="_blank" rel="noopener">地図を開く</a></article>
+          <article class="spot-card"><h4>akari cafe</h4><div class="spot-meta"><span class="badge maybe">余力</span></div><p>休憩候補。混雑していたら無理しない。</p><a class="map-button" href="https://www.google.com/maps/search/?api=1&amp;query=akari%20cafe%20立川" target="_blank" rel="noopener">Google Mapで開く</a></article>
+          <article class="spot-card"><h4>たましん美術館</h4><div class="spot-meta"><span class="badge maybe">余力</span></div><p>北口周辺の確認候補。</p><a class="map-button" href="https://www.google.com/maps/search/?api=1&amp;query=たましん美術館" target="_blank" rel="noopener">Google Mapで開く</a></article>
         </div>
       </div>
 
@@ -1158,8 +1524,8 @@
           <article class="spot-card"><h4>TACHIHI PLACE</h4><div class="spot-meta"><span class="badge want">できれば行く</span></div><p>GREEN SPRINGS内の細かい回収候補。</p><a class="map-button" href="https://www.google.com/maps/search/?api=1&amp;query=TACHIHI%20PLACE%20立川" target="_blank" rel="noopener">Google Mapで開く</a></article>
           <article class="spot-card"><h4>ビオトープ</h4><div class="spot-meta"><span class="badge want">できれば行く</span></div><p>人の流れを見て静かに確認。</p><a class="map-button" href="https://www.google.com/maps/search/?api=1&amp;query=GREEN%20SPRINGS%20ビオトープ" target="_blank" rel="noopener">Google Mapで開く</a></article>
           <article class="spot-card"><h4>立川ステージガーデン</h4><div class="spot-meta"><span class="badge want">できれば行く</span></div><p>イベント時は混雑優先で無理しない。</p><a class="map-button" href="https://www.google.com/maps/search/?api=1&amp;query=立川ステージガーデン" target="_blank" rel="noopener">Google Mapで開く</a></article>
-          <article class="spot-card"><h4>RITUEL CAFE GREEN SPRINGS 立川店</h4><div class="spot-meta"><span class="badge maybe">余力</span></div><p>休憩候補。混雑時は別の休憩へ。</p><a class="map-button" href="https://www.google.com/maps/search/?api=1&amp;query=RITUEL%20CAFE%20GREEN%20SPRINGS%20立川店" target="_blank" rel="noopener">地図を開く</a></article>
-          <article class="spot-card"><h4>R Baker 立川グリーンスプリングス店</h4><div class="spot-meta"><span class="badge maybe">余力</span></div><p>軽食・休憩候補。</p><a class="map-button" href="https://www.google.com/maps/search/?api=1&amp;query=R%20Baker%20立川%20グリーンスプリングス" target="_blank" rel="noopener">地図を開く</a></article>
+          <article class="spot-card"><h4>RITUEL CAFE GREEN SPRINGS 立川店</h4><div class="spot-meta"><span class="badge maybe">余力</span></div><p>休憩候補。混雑時は別の休憩へ。</p><a class="map-button" href="https://www.google.com/maps/search/?api=1&amp;query=RITUEL%20CAFE%20GREEN%20SPRINGS%20立川店" target="_blank" rel="noopener">Google Mapで開く</a></article>
+          <article class="spot-card"><h4>R Baker 立川グリーンスプリングス店</h4><div class="spot-meta"><span class="badge maybe">余力</span></div><p>軽食・休憩候補。</p><a class="map-button" href="https://www.google.com/maps/search/?api=1&amp;query=R%20Baker%20立川%20グリーンスプリングス" target="_blank" rel="noopener">Google Mapで開く</a></article>
         </div>
       </div>
 
@@ -1173,39 +1539,55 @@
       </div>
     </section>
 
-    <section class="section" id="skip">
-      <h2>🧳 余力枠・捨て枠</h2>
-      <p class="section-lead">行けない場所を決めておくと、当日の迷いが減る。土曜が押したら国分寺高校、ラウンドワン、池袋DiCEは捨てる。</p>
-      <div class="spot-grid">
-        <article class="spot-card"><h4>東京都立国分寺高校</h4><div class="spot-meta"><span class="badge skip">今回は捨てる</span><span class="badge warn">注意して見るだけ</span></div><p>モデル候補だが原則スキップ。行く場合も敷地外から、登下校時間を避ける。</p><a class="map-button" href="https://www.google.com/maps/search/?api=1&amp;query=東京都立国分寺高等学校" target="_blank" rel="noopener">現地確認</a></article>
-        <article class="spot-card"><h4>池袋DiCE</h4><div class="spot-meta"><span class="badge skip">今回は捨てる</span></div><p>土曜の立川集中を優先するため捨てる。</p><a class="map-button" href="https://www.google.com/maps/search/?api=1&amp;query=DiCE%20池袋店" target="_blank" rel="noopener">現地確認</a></article>
-        <article class="spot-card"><h4>ラウンドワン武蔵村山店</h4><div class="spot-meta"><span class="badge skip">今回は捨てる</span></div><p>移動負荷が高い。立川本体を優先。</p><a class="map-button" href="https://www.google.com/maps/search/?api=1&amp;query=ラウンドワン%20武蔵村山店" target="_blank" rel="noopener">現地確認</a></article>
-        <article class="spot-card"><h4>東京駅丸の内駅舎</h4><div class="spot-meta"><span class="badge skip">今回は捨てる</span></div><p>余力候補だが、今回は都心回収と羽田優先で切る。</p><a class="map-button" href="https://www.google.com/maps/search/?api=1&amp;query=東京駅%20丸の内駅舎" target="_blank" rel="noopener">現地確認</a></article>
+    <section class="section drop-zone" id="drop">
+      <h2>DROP ZONE：今回は捨てる勇気</h2>
+      <p class="section-lead">行けない場所を先に決めておくと、当日の判断が速くなる。今回の勝ち筋は立川と羽田を守ること。</p>
+      <div class="drop-grid">
+        <article class="drop-card"><h4>秩父</h4><p>あの花の聖地であり、今回はテーマ外。</p></article>
+        <article class="drop-card"><h4>江ノ島・湘南</h4><p>方向が悪く、今回のルートに合わない。</p></article>
+        <article class="drop-card"><h4>三郷・花火大会</h4><p>時期と距離が合わない。</p></article>
+        <article class="drop-card"><h4>富士山・富士市</h4><p>重すぎる。</p></article>
+        <article class="drop-card"><h4>USJ</h4><p>大阪なので無理。</p></article>
+        <article class="drop-card"><h4>国分寺高校</h4><p>学校なので原則スキップ。</p></article>
+        <article class="drop-card"><h4>東京駅丸の内駅舎</h4><p>余力がなければ捨てる。</p></article>
+        <article class="drop-card"><h4>東京ドーム</h4><p>金曜が押したら捨てる。</p></article>
       </div>
+      <p class="drop-message">捨てるのは敗北ではない。旅程を守る判断である。</p>
     </section>
 
     <section class="section" id="photos">
-      <h2>📷 当日見るものチェック</h2>
-      <p class="section-lead">画像は貼らず、当日に自分たちで確認する項目だけを残す。</p>
+      <h2>PHOTO QUEST</h2>
+      <p class="section-lead">撮る・見る・残すを迷わないためのクエストリスト。画像は貼らず、当日に自分たちで回収する。</p>
       <div class="photo-grid" aria-label="当日見るものチェックリスト">
-        <div class="photo-check">横浜駅は合流地点として扱う</div>
-        <div class="photo-check">MEN YARD FIGHTは神奈川県側の聖地候補として見る</div>
-        <div class="photo-check">大宮はグッズ回収だけにする</div>
-        <div class="photo-check">土曜は立川南口・北口・GREEN SPRINGSを優先</div>
-        <div class="photo-check">砂川七番へは多摩モノレールを使う</div>
-        <div class="photo-check">日曜は羽田空港14:30〜15:00着を守る</div>
+        <div class="photo-check photo-card"><div class="photo-main">横浜駅で合流 <span class="badge must">必須</span></div><a class="map-button" href="https://www.google.com/maps/search/?api=1&amp;query=横浜駅" target="_blank" rel="noopener">Google Map</a></div>
+        <div class="photo-check photo-card"><div class="photo-main">MEN YARD FIGHT 外観 <span class="badge want">できれば</span></div><a class="map-button" href="https://www.google.com/maps/search/?api=1&amp;query=MEN%20YARD%20FIGHT%20反町" target="_blank" rel="noopener">Google Map</a></div>
+        <div class="photo-check photo-card"><div class="photo-main">大宮グッズ棚 <span class="badge must">RAID</span></div><a class="map-button" href="https://www.google.com/maps/search/?api=1&amp;query=ビックカメラ大宮西口そごう店" target="_blank" rel="noopener">Google Map</a></div>
+        <div class="photo-check photo-card"><div class="photo-main">渋谷スクランブル交差点 <span class="badge want">できれば</span></div><a class="map-button" href="https://www.google.com/maps/search/?api=1&amp;query=渋谷スクランブル交差点" target="_blank" rel="noopener">Google Map</a></div>
+        <div class="photo-check photo-card"><div class="photo-main">下北沢・北澤庚申堂 <span class="badge want">できれば</span></div><a class="map-button" href="https://www.google.com/maps/search/?api=1&amp;query=北澤庚申堂" target="_blank" rel="noopener">Google Map</a></div>
+        <div class="photo-check photo-card"><div class="photo-main">六本木ヒルズ・毛利庭園 <span class="badge maybe">余力</span></div><a class="map-button" href="https://www.google.com/maps/search/?api=1&amp;query=毛利庭園%20六本木ヒルズ" target="_blank" rel="noopener">Google Map</a></div>
+        <div class="photo-check photo-card"><div class="photo-main">赤坂・福吉坂 <span class="badge maybe">余力</span></div><a class="map-button" href="https://www.google.com/maps/search/?api=1&amp;query=福吉坂%20赤坂" target="_blank" rel="noopener">Google Map</a></div>
+        <div class="photo-check photo-card"><div class="photo-main">立川南口 <span class="badge must">必須</span></div><a class="map-button" href="https://www.google.com/maps/search/?api=1&amp;query=立川南駅" target="_blank" rel="noopener">Google Map</a></div>
+        <div class="photo-check photo-card"><div class="photo-main">東急ストア立川駅南口店 <span class="badge must">必須</span></div><a class="map-button" href="https://www.google.com/maps/search/?api=1&amp;query=東急ストア%20立川駅南口店" target="_blank" rel="noopener">Google Map</a></div>
+        <div class="photo-check photo-card"><div class="photo-main">立川タクロス <span class="badge must">必須</span></div><a class="map-button" href="https://www.google.com/maps/search/?api=1&amp;query=立川タクロス" target="_blank" rel="noopener">Google Map</a></div>
+        <div class="photo-check photo-card"><div class="photo-main">サンサンロード <span class="badge must">必須</span></div><a class="map-button" href="https://www.google.com/maps/search/?api=1&amp;query=サンサンロード%20立川" target="_blank" rel="noopener">Google Map</a></div>
+        <div class="photo-check photo-card"><div class="photo-main">GREEN SPRINGS <span class="badge must">必須</span></div><a class="map-button" href="https://www.google.com/maps/search/?api=1&amp;query=GREEN%20SPRINGS%20立川" target="_blank" rel="noopener">Google Map</a></div>
+        <div class="photo-check photo-card"><div class="photo-main">砂川七番 <span class="badge want">できれば</span></div><a class="map-button" href="https://www.google.com/maps/search/?api=1&amp;query=砂川七番駅" target="_blank" rel="noopener">Google Map</a></div>
+        <div class="photo-check photo-card"><div class="photo-main">西松屋立川柏町店 <span class="badge want">できれば</span></div><a class="map-button" href="https://www.google.com/maps/search/?api=1&amp;query=西松屋%20立川柏町店" target="_blank" rel="noopener">Google Map</a></div>
+        <div class="photo-check photo-card"><div class="photo-main">羽田空港 <span class="badge must">CLEAR</span></div><a class="map-button" href="https://www.google.com/maps/search/?api=1&amp;query=羽田空港" target="_blank" rel="noopener">Google Map</a></div>
       </div>
     </section>
 
     <section class="section manners" id="manners">
-      <h2>🤝 現地確認・撮影マナー</h2>
+      <h2>PILGRIMAGE RULES</h2>
       <div class="check-grid">
-        <div class="check-item">住宅地・学校・マンションでは敷地に入らない</div>
-        <div class="check-item">表札、住民、車のナンバーを撮らない</div>
+        <div class="check-item">私有地に入らない</div>
+        <div class="check-item">学校敷地に入らない</div>
+        <div class="check-item">表札・住民・車のナンバーを撮らない</div>
         <div class="check-item">店舗内で撮影する場合はルールに従う</div>
-        <div class="check-item">店舗や学校では迷惑にならないよう短時間で確認</div>
+        <div class="check-item">通行人が写った写真はSNS投稿前にぼかす</div>
+        <div class="check-item">早朝・深夜の住宅地訪問はしない</div>
+        <div class="check-item">ゴミは持ち帰る</div>
         <div class="check-item">Google Mapリンクは現地確認用であり、侵入や迷惑行為のためではない</div>
-        <div class="check-item">国分寺高校は原則スキップ。行く場合も敷地外から、登下校時間を避ける</div>
       </div>
     </section>
 

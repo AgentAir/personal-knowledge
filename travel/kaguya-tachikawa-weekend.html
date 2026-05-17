@@ -856,6 +856,128 @@
       text-decoration: none;
     }
 
+    .post-visit {
+      background:
+        linear-gradient(135deg, rgba(255, 255, 255, 0.92), rgba(239, 246, 255, 0.88)),
+        repeating-linear-gradient(135deg, rgba(255, 95, 143, 0.08) 0 2px, transparent 2px 22px);
+      border-color: rgba(255, 95, 143, 0.2);
+    }
+
+    .post-visit::before {
+      position: absolute;
+      inset: 0 0 auto;
+      height: 8px;
+      content: "";
+      background: linear-gradient(90deg, var(--green), var(--cyan), var(--pink));
+    }
+
+    .post-visit-summary {
+      display: grid;
+      gap: 12px;
+      margin-bottom: 18px;
+    }
+
+    .post-visit-summary p {
+      margin: 0;
+      padding: 16px;
+      border-radius: 20px;
+      background: #fff;
+      border: 1px solid var(--line);
+      color: #334155;
+      font-weight: 720;
+      line-height: 1.75;
+      box-shadow: 0 10px 26px rgba(15, 23, 42, 0.06);
+    }
+
+    .result-grid,
+    .lesson-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .result-card {
+      min-width: 0;
+      padding: 16px;
+      border-radius: 22px;
+      background: #fff;
+      border: 1px solid var(--line);
+      border-top: 6px solid var(--cyan);
+      box-shadow: 0 12px 28px rgba(15, 23, 42, 0.07);
+    }
+
+    .result-card.cleared { border-top-color: var(--green); }
+    .result-card.partial { border-top-color: var(--amber); }
+    .result-card.timeout { border-top-color: var(--red); }
+    .result-card.planned-skip { border-top-color: #64748b; }
+    .result-card.lessons { border-top-color: var(--violet); }
+
+    .result-grid + .result-card {
+      margin-top: 12px;
+    }
+
+    .result-card h3 {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px;
+      margin: 0 0 12px;
+      font-size: 1.14rem;
+      line-height: 1.35;
+    }
+
+    .result-card h3 span {
+      display: inline-flex;
+      align-items: center;
+      min-height: 28px;
+      padding: 5px 9px;
+      border-radius: 999px;
+      color: #fff;
+      background: linear-gradient(135deg, var(--violet), var(--blue));
+      font-size: 0.72rem;
+      font-weight: 950;
+      letter-spacing: 0.04em;
+    }
+
+    .result-card ul {
+      display: grid;
+      gap: 8px;
+      margin: 0;
+      padding-left: 1.15rem;
+      color: #334155;
+      font-weight: 720;
+      line-height: 1.55;
+      overflow-wrap: anywhere;
+    }
+
+    .result-card li::marker {
+      color: var(--pink);
+      font-weight: 950;
+    }
+
+    .result-card li ul {
+      margin-top: 7px;
+      color: var(--muted);
+      font-weight: 680;
+    }
+
+    .result-callout {
+      margin: 12px 0 18px;
+      padding: 16px;
+      border-radius: 22px;
+      color: #fff;
+      background:
+        linear-gradient(135deg, rgba(15, 23, 42, 0.94), rgba(37, 99, 235, 0.86)),
+        repeating-linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0 2px, transparent 2px 18px);
+      box-shadow: 0 16px 34px rgba(37, 99, 235, 0.16);
+      font-weight: 850;
+      line-height: 1.65;
+    }
+
+    .result-callout strong {
+      color: #fde68a;
+    }
+
     .flight-box {
       margin-top: 14px;
       padding: 18px;
@@ -960,7 +1082,9 @@
       .spot-grid,
       .check-grid,
       .source-grid,
-      .photo-grid {
+      .photo-grid,
+      .result-grid,
+      .lesson-grid {
         grid-template-columns: 1fr;
       }
 
@@ -1611,6 +1735,91 @@
           <a href="https://libert.co.jp/pilgrimage-guild/cosmicprincesskaguya-anime-pilgrimage/" target="_blank" rel="noopener">聖地巡礼ギルドで確認</a>
         </article>
       </div>
+    </section>
+
+    <section class="section post-visit" id="post-visit">
+      <h2>巡礼後メモ</h2>
+      <p class="section-lead">事前のしおりを、実際に回った結果ログとして追記。回収できた場所、できなかった場所、予定通り捨てた場所を分けて残す。</p>
+
+      <div class="post-visit-summary">
+        <p>無事に超かぐや姫の聖地巡礼が完了。弟も実家に帰宅し、作成したしおりも移動中に大活躍した。</p>
+        <p>今回よかったのは、行く場所だけでなく「今回は行かない場所」も事前に決めていたこと。そのおかげで、当日に迷う時間が減り、限られた週末の中でかなり満足度の高い巡礼になった。</p>
+        <p>また、ちょうどBlu-rayの発売タイミングとも重なり、大宮のビックカメラで予約することができた。後日、兄が受け取り、弟に手渡す形にする予定。大宮は聖地ではなかったが、今回の巡礼の思い出を持ち帰る「戦利品回収地点」としてかなり良い役割になった。</p>
+      </div>
+
+      <div class="result-callout">
+        <strong>大宮グッズ回収:</strong> 金曜に入れた判断が当たり。ビックカメラ大宮でBlu-ray予約までできたので、聖地ではない大宮にも今回の旅の成果がはっきり残った。
+      </div>
+
+      <div class="result-grid" aria-label="巡礼結果">
+        <article class="result-card cleared">
+          <h3>実際に回れた場所 <span>CLEARED</span></h3>
+          <ul>
+            <li>横浜駅：弟との合流地点</li>
+            <li>大宮：超かぐや姫グッズ回収
+              <ul>
+                <li>ビックカメラ大宮でBlu-rayを予約</li>
+                <li>後日、兄が受け取り、弟に手渡す予定</li>
+              </ul>
+            </li>
+            <li>渋谷</li>
+            <li>下北沢</li>
+            <li>六本木</li>
+            <li>立川南口</li>
+            <li>立川北口</li>
+            <li>GREEN SPRINGS</li>
+            <li>砂川七番</li>
+            <li>西松屋</li>
+            <li>羽田空港</li>
+          </ul>
+        </article>
+
+        <article class="result-card partial">
+          <h3>行ったが目的達成できなかった場所 <span>PARTIAL</span></h3>
+          <ul>
+            <li>反町 / MEN YARD FIGHT
+              <ul>
+                <li>タピオカラーメンは終了していたため、今回はスキップ</li>
+              </ul>
+            </li>
+          </ul>
+        </article>
+
+        <article class="result-card timeout">
+          <h3>時間切れで行けなかった場所 <span>TIME OUT</span></h3>
+          <ul>
+            <li>赤坂 / 福吉坂
+              <ul>
+                <li>時間切れで回収できなかった</li>
+              </ul>
+            </li>
+          </ul>
+        </article>
+
+        <article class="result-card planned-skip">
+          <h3>予定通り回らなかった場所 <span>SKIPPED</span></h3>
+          <ul>
+            <li>秩父</li>
+            <li>江ノ島</li>
+            <li>三郷</li>
+            <li>富士市</li>
+            <li>大宮以外の余力枠</li>
+          </ul>
+        </article>
+      </div>
+
+      <article class="result-card lessons">
+        <h3>今回の学び <span>LESSONS</span></h3>
+        <ul class="lesson-grid">
+          <li>大宮グッズ回収を金曜に入れた判断はよかった</li>
+          <li>Blu-ray予約までできたので、大宮を入れた価値がかなり高かった</li>
+          <li>土曜を立川集中日にしたことで、立川周辺をかなり満足度高く回れた</li>
+          <li>事前に「捨てる場所」を決めていたので、旅程が崩壊しなかった</li>
+          <li>Google Mapリンク付きのしおりは、移動中にかなり便利だった</li>
+          <li>次回は、飲食店系の聖地はメニュー提供終了や営業時間を事前にもう少し確認する</li>
+          <li>赤坂は時間切れになったので、都心側の余力枠として扱うのがよい</li>
+        </ul>
+      </article>
     </section>
 
     <p class="footer-note">AgentAir / Personal Knowledge - 超かぐや姫 立川週末しおり</p>

@@ -146,6 +146,34 @@ ul {
   padding-left: 1.4em;
 }
 
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 18px 0;
+  background: #fff;
+  font-size: 0.95rem;
+}
+
+th,
+td {
+  border: 1px solid #e5e7eb;
+  padding: 10px 12px;
+  text-align: left;
+  vertical-align: top;
+}
+
+th {
+  background: #f8fafc;
+}
+
+pre {
+  overflow-x: auto;
+  background: #0f172a;
+  color: #e5e7eb;
+  padding: 18px;
+  border-radius: 12px;
+}
 footer {
   margin-top: 60px;
   color: #777;

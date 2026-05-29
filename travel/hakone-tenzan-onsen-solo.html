@@ -1,0 +1,1124 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>箱根・天山湯治郷 ひとり日帰り療養しおり</title>
+  <link rel="stylesheet" href="../style.css">
+  <style>
+    :root {
+      --ink: #232b2b;
+      --muted: #5f6b69;
+      --paper: #f5f0e6;
+      --sumi: #2f3a45;
+      --moss: #4d6f5f;
+      --water: #5a7d8c;
+      --clay: #9a7b5a;
+      --soft: #efe7d6;
+      --line: rgba(35, 43, 43, 0.12);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 14% 6%, rgba(90, 125, 140, 0.14), transparent 32%),
+        radial-gradient(circle at 88% 4%, rgba(77, 111, 95, 0.12), transparent 30%),
+        linear-gradient(180deg, #f7f3ea 0%, #f1ece1 52%, #f5f0e6 100%);
+      overflow-x: hidden;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    .trip-page {
+      width: min(960px, 100%);
+      margin: 0 auto;
+      padding: 16px;
+    }
+
+    .top-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin: 4px 0 10px;
+      color: #46524f;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      min-height: 48vh;
+      display: grid;
+      align-content: end;
+      padding: clamp(28px, 5vw, 56px) clamp(22px, 5vw, 52px) clamp(30px, 5vw, 52px);
+      border-radius: 30px;
+      color: #f7f3ea;
+      background:
+        linear-gradient(160deg, rgba(33, 42, 48, 0.74), rgba(47, 58, 69, 0.40)),
+        radial-gradient(circle at 78% 22%, rgba(245, 240, 230, 0.22), transparent 26%),
+        linear-gradient(150deg, #3a4a4a 0%, #4d6f5f 48%, #5a7d8c 100%);
+      box-shadow: 0 22px 56px rgba(35, 43, 43, 0.18);
+    }
+
+    .hero::before {
+      position: absolute;
+      inset: 0;
+      content: "";
+      pointer-events: none;
+      background-image:
+        repeating-linear-gradient(180deg, rgba(255, 255, 255, 0.05) 0 1px, transparent 1px 26px);
+      mix-blend-mode: screen;
+    }
+
+    .hero::after {
+      position: absolute;
+      content: "";
+      pointer-events: none;
+      width: 240px;
+      height: 240px;
+      right: -70px;
+      top: -70px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(255, 255, 255, 0.18), transparent 62%);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      width: fit-content;
+      margin: 0 0 14px;
+      padding: 7px 13px;
+      border: 1px solid rgba(255, 255, 255, 0.4);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.1);
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+    }
+
+    .hero h1 {
+      max-width: 760px;
+      margin: 0;
+      font-size: clamp(2rem, 8vw, 3.7rem);
+      line-height: 1.22;
+      letter-spacing: 0.01em;
+      font-weight: 800;
+      text-shadow: 0 5px 22px rgba(20, 26, 26, 0.34);
+    }
+
+    .subtitle {
+      max-width: 660px;
+      margin: 18px 0 0;
+      color: rgba(247, 243, 234, 0.92);
+      font-size: clamp(0.98rem, 2.6vw, 1.18rem);
+      font-weight: 500;
+      line-height: 1.9;
+    }
+
+    .breath-strip {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin-top: 24px;
+    }
+
+    .breath-chip {
+      min-width: 0;
+      padding: 14px;
+      border: 1px solid rgba(255, 255, 255, 0.28);
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(6px);
+    }
+
+    .breath-chip strong {
+      display: block;
+      font-size: clamp(1.05rem, 3vw, 1.4rem);
+      line-height: 1.3;
+      font-weight: 700;
+    }
+
+    .breath-chip span {
+      display: block;
+      margin-top: 7px;
+      color: rgba(247, 243, 234, 0.85);
+      font-size: 0.82rem;
+      line-height: 1.6;
+    }
+
+    .quick-nav {
+      position: sticky;
+      top: 0;
+      z-index: 5;
+      display: flex;
+      gap: 8px;
+      margin: 16px 0 8px;
+      padding: 10px 0;
+      overflow-x: auto;
+      background: rgba(245, 240, 230, 0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(35, 43, 43, 0.08);
+    }
+
+    .quick-nav a {
+      flex: 0 0 auto;
+      min-height: 40px;
+      display: inline-flex;
+      align-items: center;
+      padding: 8px 14px;
+      border-radius: 999px;
+      color: #3a4644;
+      background: #fffdf8;
+      border: 1px solid rgba(35, 43, 43, 0.1);
+      box-shadow: 0 6px 14px rgba(35, 43, 43, 0.05);
+      font-size: 0.86rem;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .section,
+    .day-card {
+      position: relative;
+      overflow: hidden;
+      margin: 22px 0;
+      padding: clamp(20px, 4vw, 32px);
+      border-radius: 26px;
+      background:
+        linear-gradient(180deg, rgba(255, 253, 248, 0.94), rgba(253, 250, 243, 0.9));
+      border: 1px solid rgba(35, 43, 43, 0.08);
+      box-shadow: 0 14px 38px rgba(35, 43, 43, 0.07);
+    }
+
+    .day-card::before {
+      position: absolute;
+      inset: 0 0 auto;
+      height: 5px;
+      content: "";
+      background: linear-gradient(90deg, var(--moss), var(--water), var(--clay));
+    }
+
+    .section h2,
+    .day-card h2 {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin: 0 0 16px;
+      font-size: clamp(1.3rem, 5vw, 1.95rem);
+      line-height: 1.4;
+      font-weight: 800;
+    }
+
+    .section-lead {
+      margin: -4px 0 20px;
+      color: var(--muted);
+      font-weight: 500;
+      line-height: 1.9;
+    }
+
+    .lead-text p {
+      margin: 0 0 14px;
+      line-height: 2;
+      font-weight: 500;
+    }
+
+    .lead-text p:last-child {
+      margin-bottom: 0;
+    }
+
+    .pull-quote {
+      margin: 18px 0 0;
+      padding: 18px 22px;
+      border-left: 4px solid var(--moss);
+      border-radius: 0 16px 16px 0;
+      background: linear-gradient(180deg, rgba(77, 111, 95, 0.08), rgba(77, 111, 95, 0.03));
+      color: #2f3a3a;
+      font-size: clamp(1.05rem, 3.4vw, 1.3rem);
+      font-weight: 700;
+      line-height: 1.7;
+    }
+
+    .note-line {
+      margin: 16px 0 0;
+      padding: 14px 16px;
+      border-radius: 16px;
+      background: rgba(154, 123, 90, 0.1);
+      border: 1px solid rgba(154, 123, 90, 0.22);
+      color: #6b513a;
+      font-weight: 600;
+      line-height: 1.7;
+    }
+
+    .timeline {
+      position: relative;
+      display: grid;
+      gap: 10px;
+    }
+
+    .timeline::before {
+      position: absolute;
+      left: 70px;
+      top: 14px;
+      bottom: 14px;
+      width: 2px;
+      content: "";
+      border-radius: 999px;
+      background: linear-gradient(180deg, var(--moss), var(--water));
+      opacity: 0.3;
+    }
+
+    .slot {
+      position: relative;
+      display: grid;
+      grid-template-columns: 90px 1fr;
+      gap: 14px;
+      align-items: start;
+      padding: 14px;
+      border-radius: 18px;
+      background: linear-gradient(135deg, #fffdf8, #f7f3ea);
+      border: 1px solid var(--line);
+    }
+
+    .slot::after {
+      position: absolute;
+      left: 65px;
+      top: 30px;
+      width: 11px;
+      height: 11px;
+      content: "";
+      border-radius: 999px;
+      background: #fffdf8;
+      border: 3px solid var(--moss);
+      box-shadow: 0 0 0 4px rgba(77, 111, 95, 0.1);
+    }
+
+    .time {
+      display: grid;
+      place-items: center;
+      min-height: 44px;
+      border-radius: 12px;
+      color: #f7f3ea;
+      background: linear-gradient(135deg, var(--sumi), var(--water));
+      font-weight: 700;
+      font-size: 0.96rem;
+      box-shadow: 0 8px 16px rgba(47, 58, 69, 0.14);
+    }
+
+    .slot h3 {
+      margin: 0 0 6px;
+      font-size: 1.04rem;
+      line-height: 1.45;
+      font-weight: 700;
+    }
+
+    .slot p {
+      margin: 0;
+      color: var(--muted);
+      font-weight: 500;
+      line-height: 1.75;
+    }
+
+    .route-flow {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 0 0 18px;
+    }
+
+    .route-flow span {
+      position: relative;
+      flex: 1 1 130px;
+      min-width: 0;
+      padding: 11px 12px;
+      border-radius: 14px;
+      background: rgba(90, 125, 140, 0.1);
+      border: 1px solid rgba(90, 125, 140, 0.2);
+      color: #335663;
+      font-size: 0.86rem;
+      font-weight: 700;
+      text-align: center;
+    }
+
+    .route-flow span:not(:last-child)::after {
+      position: absolute;
+      right: -10px;
+      top: 50%;
+      z-index: 1;
+      content: "→";
+      color: var(--water);
+      transform: translateY(-50%);
+    }
+
+    .access-list {
+      display: grid;
+      gap: 10px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .access-list li {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 12px;
+      align-items: start;
+      padding: 14px 16px;
+      border-radius: 16px;
+      background: #fffdf8;
+      border: 1px solid var(--line);
+      font-weight: 500;
+      line-height: 1.7;
+    }
+
+    .access-list li b {
+      color: #335663;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+
+    .info-table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: #fffdf8;
+      box-shadow: 0 8px 20px rgba(35, 43, 43, 0.05);
+    }
+
+    .info-table th,
+    .info-table td {
+      padding: 13px 15px;
+      border-bottom: 1px solid var(--line);
+      text-align: left;
+      vertical-align: top;
+      font-weight: 500;
+      line-height: 1.6;
+    }
+
+    .info-table tr:last-child th,
+    .info-table tr:last-child td {
+      border-bottom: 0;
+    }
+
+    .info-table th {
+      width: 36%;
+      color: #3a5249;
+      background: rgba(77, 111, 95, 0.08);
+      font-weight: 800;
+    }
+
+    .spot-grid {
+      display: grid;
+      gap: 12px;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .spot-card {
+      display: grid;
+      gap: 10px;
+      min-width: 0;
+      padding: 18px;
+      border-radius: 18px;
+      background: #fffdf8;
+      border: 1px solid var(--line);
+      border-top: 4px solid var(--moss);
+      box-shadow: 0 8px 20px rgba(35, 43, 43, 0.05);
+    }
+
+    .spot-card.water { border-top-color: var(--water); }
+    .spot-card.clay { border-top-color: var(--clay); }
+
+    .spot-card h4 {
+      margin: 0;
+      font-size: 1.06rem;
+      line-height: 1.45;
+      font-weight: 700;
+    }
+
+    .spot-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .tag-pill {
+      display: inline-flex;
+      align-items: center;
+      padding: 4px 10px;
+      border-radius: 999px;
+      font-size: 0.76rem;
+      font-weight: 700;
+      background: rgba(90, 125, 140, 0.12);
+      color: #335663;
+    }
+
+    .tag-pill.rest { background: rgba(77, 111, 95, 0.14); color: #3a5249; }
+    .tag-pill.eat { background: rgba(154, 123, 90, 0.16); color: #6b513a; }
+
+    .spot-card p {
+      margin: 0;
+      color: var(--muted);
+      font-weight: 500;
+      line-height: 1.75;
+    }
+
+    .spot-card .hours {
+      font-size: 0.86rem;
+      color: #4a5654;
+      font-weight: 600;
+    }
+
+    .map-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 7px;
+      min-height: 42px;
+      width: fit-content;
+      max-width: 100%;
+      padding: 10px 15px;
+      border-radius: 999px;
+      color: #f7f3ea;
+      background: linear-gradient(135deg, var(--moss), var(--water));
+      box-shadow: 0 8px 18px rgba(77, 111, 95, 0.18);
+      font-size: 0.88rem;
+      font-weight: 700;
+      line-height: 1.2;
+      text-align: center;
+      text-decoration: none;
+    }
+
+    .map-button::after {
+      content: "↗";
+      font-size: 0.8rem;
+      opacity: 0.85;
+    }
+
+    .check-grid {
+      display: grid;
+      gap: 10px;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      margin-top: 4px;
+    }
+
+    .check-item {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      padding: 13px 15px;
+      border-radius: 14px;
+      background: #fffdf8;
+      border: 1px solid var(--line);
+      font-weight: 600;
+      line-height: 1.55;
+    }
+
+    .check-item::before {
+      flex: 0 0 auto;
+      display: grid;
+      place-items: center;
+      width: 22px;
+      height: 22px;
+      content: "";
+      border-radius: 6px;
+      background: rgba(77, 111, 95, 0.1);
+      border: 2px solid var(--moss);
+      box-shadow: inset 0 0 0 3px #fffdf8;
+    }
+
+    .check-item.skip::before {
+      border-color: #9aa3a0;
+      background: rgba(154, 163, 160, 0.14);
+    }
+
+    .check-item small {
+      display: block;
+      margin-top: 3px;
+      color: var(--muted);
+      font-weight: 500;
+    }
+
+    .bath-grid {
+      display: grid;
+      gap: 12px;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .bath-rule {
+      padding: 16px 18px;
+      border-radius: 18px;
+      background: linear-gradient(180deg, #fffdf8, #f7f3ea);
+      border: 1px solid var(--line);
+    }
+
+    .bath-rule strong {
+      display: block;
+      margin-bottom: 7px;
+      font-size: 1.02rem;
+      font-weight: 700;
+    }
+
+    .bath-rule p {
+      margin: 0;
+      color: var(--muted);
+      font-weight: 500;
+      line-height: 1.7;
+    }
+
+    .detox {
+      background:
+        linear-gradient(160deg, rgba(47, 58, 69, 0.96), rgba(77, 111, 95, 0.9));
+      color: #f7f3ea;
+      border-color: rgba(255, 255, 255, 0.14);
+    }
+
+    .detox h2 {
+      color: #f7f3ea;
+    }
+
+    .detox .section-lead {
+      color: rgba(247, 243, 234, 0.85);
+    }
+
+    .detox .lead-text p {
+      color: rgba(247, 243, 234, 0.9);
+    }
+
+    .detox .pull-quote {
+      border-left-color: rgba(247, 243, 234, 0.6);
+      background: rgba(255, 255, 255, 0.08);
+      color: #f7f3ea;
+    }
+
+    .post-visit {
+      background:
+        linear-gradient(180deg, rgba(255, 253, 248, 0.95), rgba(247, 243, 234, 0.9));
+      border-color: rgba(154, 123, 90, 0.22);
+    }
+
+    .post-visit::before {
+      position: absolute;
+      inset: 0 0 auto;
+      height: 5px;
+      content: "";
+      background: linear-gradient(90deg, var(--clay), var(--moss), var(--water));
+    }
+
+    .memo-grid {
+      display: grid;
+      gap: 12px;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .memo-card {
+      min-width: 0;
+      padding: 16px;
+      border-radius: 16px;
+      background: #fffdf8;
+      border: 1px solid var(--line);
+      border-left: 4px solid var(--clay);
+    }
+
+    .memo-card h3 {
+      margin: 0 0 8px;
+      font-size: 1.02rem;
+      font-weight: 700;
+    }
+
+    .memo-card p {
+      margin: 0;
+      min-height: 2.2em;
+      color: #98948b;
+      font-weight: 500;
+      font-style: italic;
+      line-height: 1.7;
+    }
+
+    .footer-note {
+      margin: 26px 0 36px;
+      color: var(--muted);
+      text-align: center;
+      font-weight: 600;
+    }
+
+    .page-top-button {
+      position: fixed;
+      right: 16px;
+      bottom: 20px;
+      right: max(16px, env(safe-area-inset-right));
+      bottom: max(20px, env(safe-area-inset-bottom));
+      z-index: 50;
+      display: grid;
+      place-items: center;
+      width: 58px;
+      height: 58px;
+      padding: 0;
+      border: 2px solid rgba(255, 255, 255, 0.85);
+      border-radius: 999px;
+      color: #f7f3ea;
+      background: linear-gradient(135deg, var(--sumi), var(--moss));
+      box-shadow: 0 12px 28px rgba(35, 43, 43, 0.22);
+      cursor: pointer;
+      font-size: 1.1rem;
+      font-weight: 800;
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(10px) scale(0.96);
+      transition: opacity 180ms ease, transform 180ms ease;
+    }
+
+    .page-top-button.is-visible {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateY(0) scale(1);
+    }
+
+    @media (max-width: 820px) {
+      .trip-page {
+        padding: 12px;
+      }
+
+      .breath-strip,
+      .spot-grid,
+      .check-grid,
+      .bath-grid,
+      .memo-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .route-flow {
+        display: grid;
+      }
+
+      .route-flow span:not(:last-child)::after {
+        right: 50%;
+        top: auto;
+        bottom: -14px;
+        transform: translateX(50%) rotate(90deg);
+      }
+
+      .info-table th {
+        width: 42%;
+      }
+
+      .map-button {
+        width: 100%;
+      }
+    }
+
+    @media (max-width: 520px) {
+      .hero {
+        min-height: 56vh;
+        padding: 24px 18px;
+      }
+
+      .slot {
+        grid-template-columns: 1fr;
+      }
+
+      .timeline::before,
+      .slot::after {
+        display: none;
+      }
+
+      .time {
+        width: fit-content;
+        min-height: 0;
+        padding: 6px 14px;
+        border-radius: 999px;
+      }
+
+      .access-list li {
+        grid-template-columns: 1fr;
+        gap: 4px;
+      }
+
+      .section,
+      .day-card {
+        border-radius: 22px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="trip-page">
+    <a class="top-link" href="../index.html">← Personal Knowledge</a>
+
+    <section class="hero" aria-labelledby="page-title">
+      <div class="hero-content">
+        <p class="eyebrow">ひとり日帰り温泉 / 湯治・療養しおり</p>
+        <h1 id="page-title">ひとり、何もしない日。<br>箱根・天山湯治郷で脚を休める</h1>
+        <p class="subtitle">先週のエクストリームウォークで酷使した脚を戻すための一日。攻略でも制覇でもなく、湯と昼寝と自然薯で、ただ体をゆるめにいく。川崎・八丁畷から箱根湯本へ。</p>
+
+        <div class="breath-strip" aria-label="今日の三つの心づもり">
+          <div class="breath-chip">
+            <strong>戻す</strong>
+            <span>遊びではなく、酷使した脚を元に戻す日。</span>
+          </div>
+          <div class="breath-chip">
+            <strong>引き算</strong>
+            <span>予定を詰め込まない。余白をわざと残す。</span>
+          </div>
+          <div class="breath-chip">
+            <strong>撮らない</strong>
+            <span>カメラは置いていく。記録しすぎず、休む。</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <nav class="quick-nav" aria-label="ページ内ナビゲーション">
+      <a href="#intro">はじめに</a>
+      <a href="#plan">今日のしおり</a>
+      <a href="#access">行き方</a>
+      <a href="#bath">湯の入り方</a>
+      <a href="#lunch">昼食</a>
+      <a href="#afternoon">午後</a>
+      <a href="#packing">持ち物</a>
+      <a href="#detox">撮らない日</a>
+      <a href="#memo">帰宅後メモ</a>
+    </nav>
+
+    <section class="section" id="intro">
+      <h2>はじめに：戻すための一日</h2>
+      <div class="lead-text">
+        <p>先週、東京エクストリームウォークで脚を使い切った。途中までは歩けたけれど、ふくらはぎも足裏も、まだ疲れが抜けきっていない。今週末は新しいどこかへ繰り出すより、体を元に戻す方を選ぶことにした。</p>
+        <p>行き先は箱根湯本の天山湯治郷。近すぎず遠すぎず、川崎・八丁畷の周辺から日帰りで往復できる距離にある湯治場だ。観光地の温泉というより、静かに体を養う場所だと聞いている。今回はそこへ、ひとりで行く。</p>
+        <p>テーマは「ひとり、何もしない」。スポットを回るのでも、写真を撮るのでもなく、湯に入って、昼を食べて、横になって、また少しだけ湯に入る。それだけの日にする。</p>
+      </div>
+      <p class="pull-quote">攻略でも制覇でもない。今日は浮世を離れて、脚と気持ちをゆるめにいく。</p>
+    </section>
+
+    <article class="day-card" id="plan">
+      <h2>🕊 今日のしおり</h2>
+      <p class="section-lead">土曜・混雑回避・療養優先で組んだ、ゆるい二部構成。一湯目で脚をほぐし、昼をはさんで昼寝、仕上げに二湯目。予定はこれ以上詰め込まない。空き時間は埋めずに残しておく。</p>
+
+      <div class="timeline">
+        <div class="slot">
+          <div class="time">8:15</div>
+          <div>
+            <h3>自宅を出る</h3>
+            <p>八丁畷から川崎駅へ。朝のうちに動いて、午前の空いた湯を狙う。慌てないよう余裕をもって出発。</p>
+          </div>
+        </div>
+        <div class="slot">
+          <div class="time">8:30</div>
+          <div>
+            <h3>川崎駅発・JR東海道線で小田原へ</h3>
+            <p>小田原・熱海方面へ。約50分。座れたら、車内では何も考えずにぼんやりしておく。</p>
+          </div>
+        </div>
+        <div class="slot">
+          <div class="time">9:25</div>
+          <div>
+            <h3>小田原着・箱根登山鉄道へ乗り換え</h3>
+            <p>箱根湯本行きに乗り換え。乗り換えは急がず、ホームで一度深呼吸する。</p>
+          </div>
+        </div>
+        <div class="slot">
+          <div class="time">9:45</div>
+          <div>
+            <h3>箱根湯本駅着</h3>
+            <p>ここから天山湯治郷へ。路線バスか旅館送迎バスを使う。詳しくは「行き方」に。</p>
+          </div>
+        </div>
+        <div class="slot">
+          <div class="time">10:00</div>
+          <div>
+            <h3>天山湯治郷 到着・受付</h3>
+            <p>入館料は現金のみ。受付を済ませたら、まず館内の静けさに体を慣らす。</p>
+          </div>
+        </div>
+        <div class="slot">
+          <div class="time">10:15</div>
+          <div>
+            <h3>一湯目（〜11:30）</h3>
+            <p>ぬるめ → 熱め → ぬるめの交互浴で脚をほぐす。長湯はしない。ふくらはぎ、足裏、すね周りを意識して温める。</p>
+          </div>
+        </div>
+        <div class="slot">
+          <div class="time">11:45</div>
+          <div>
+            <h3>昼食（〜13:00）</h3>
+            <p>滋養料理「山法師」で自然薯・とろろ・麦とろ系。湯上がりに重すぎない一膳を選ぶ。</p>
+          </div>
+        </div>
+        <div class="slot">
+          <div class="time">13:00</div>
+          <div>
+            <h3>休み処で昼寝・休憩（〜15:00）</h3>
+            <p>「ざしきぼっこ」で横になる。ここが今日の主目的。何もしない時間を、ちゃんと予定として確保する。</p>
+          </div>
+        </div>
+        <div class="slot">
+          <div class="time">15:00</div>
+          <div>
+            <h3>二湯目（〜16:00）</h3>
+            <p>仕上げの湯として短めに。のぼせない程度に、最後にもう一度だけ脚を温める。</p>
+          </div>
+        </div>
+        <div class="slot">
+          <div class="time">16:15</div>
+          <div>
+            <h3>天山湯治郷を出発</h3>
+            <p>名残惜しくても、暗くなる前に動く。帰りも急がない。</p>
+          </div>
+        </div>
+        <div class="slot">
+          <div class="time">16:30</div>
+          <div>
+            <h3>箱根湯本発</h3>
+            <p>登山鉄道で小田原へ、そこから東海道線で戻る。</p>
+          </div>
+        </div>
+        <div class="slot">
+          <div class="time">17:45</div>
+          <div>
+            <h3>川崎・八丁畷方面に帰着</h3>
+            <p>家に着く頃には脚が軽くなっているといい。夜は早めに休む。</p>
+          </div>
+        </div>
+      </div>
+
+      <p class="note-line">⏱ あくまで目安。当日の体調と混み具合で前後させる。空いた時間を新しい予定で埋めようとしないことが、今日のいちばんのルール。</p>
+    </article>
+
+    <section class="section" id="access">
+      <h2>🚆 川崎・八丁畷からの行き方</h2>
+      <p class="section-lead">起点は川崎・八丁畷周辺。八丁畷から川崎駅に出て、東海道線で小田原、登山鉄道で箱根湯本、そこから天山湯治郷へ。片道おおよそ1時間15分〜1時間30分が目安。</p>
+
+      <div class="route-flow" aria-label="ルート概要">
+        <span>八丁畷</span>
+        <span>川崎駅</span>
+        <span>小田原駅</span>
+        <span>箱根湯本駅</span>
+        <span>天山湯治郷</span>
+      </div>
+
+      <ul class="access-list">
+        <li><b>八丁畷 → 川崎駅</b><span>まずは川崎駅へ出る。乗り換えの起点。</span></li>
+        <li><b>川崎 → 小田原</b><span>JR東海道線、小田原・熱海方面で約50分。</span></li>
+        <li><b>小田原 → 箱根湯本</b><span>箱根登山鉄道で約15分。</span></li>
+        <li><b>箱根湯本 → 天山湯治郷</b><span>箱根登山バス「箱根旧街道線(K)」で奥湯本入口下車、徒歩約5分。または旅館送迎バス Bコース「早雲通り線」で天山湯治郷へ。</span></li>
+      </ul>
+
+      <p class="note-line">🔎 ここに書いた時刻はあくまで想定。電車・バスの実際の発車時刻は、当日の朝に乗換案内で最終確認する。送迎バスの時刻も公式の最新情報をその場で見ておく。</p>
+
+      <div class="spot-grid" style="margin-top:16px;">
+        <article class="spot-card water">
+          <h4>天山湯治郷（ひがな湯治 天山）</h4>
+          <div class="spot-meta"><span class="tag-pill rest">目的地</span></div>
+          <p>神奈川県足柄下郡箱根町湯本茶屋208。今日の行き先。</p>
+          <a class="map-button" href="https://www.google.com/maps/search/?api=1&amp;query=天山湯治郷" target="_blank" rel="noopener">Google Mapで開く</a>
+        </article>
+        <article class="spot-card">
+          <h4>箱根湯本駅</h4>
+          <div class="spot-meta"><span class="tag-pill">乗り換え</span></div>
+          <p>バス・送迎バスへの乗り換え地点。</p>
+          <a class="map-button" href="https://www.google.com/maps/search/?api=1&amp;query=箱根湯本駅" target="_blank" rel="noopener">Google Mapで開く</a>
+        </article>
+        <article class="spot-card">
+          <h4>奥湯本入口（バス停）</h4>
+          <div class="spot-meta"><span class="tag-pill">バス下車</span></div>
+          <p>路線バス利用時の最寄り。下車後、徒歩約5分。</p>
+          <a class="map-button" href="https://www.google.com/maps/search/?api=1&amp;query=奥湯本入口" target="_blank" rel="noopener">Google Mapで開く</a>
+        </article>
+        <article class="spot-card">
+          <h4>小田原駅</h4>
+          <div class="spot-meta"><span class="tag-pill">乗り換え</span></div>
+          <p>東海道線から箱根登山鉄道への乗り換え駅。</p>
+          <a class="map-button" href="https://www.google.com/maps/search/?api=1&amp;query=小田原駅" target="_blank" rel="noopener">Google Mapで開く</a>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="facility">
+      <h2>♨ 施設のこと</h2>
+      <p class="section-lead">天山湯治郷は、静養・湯治を目的にした施設。にぎやかに遊ぶ場所ではなく、静かに体を養う場所だ。今日のテーマとよく合っている。</p>
+      <table class="info-table">
+        <tbody>
+          <tr><th>入館料（大人）</th><td>1,450円（入湯税・消費税込）</td></tr>
+          <tr><th>子ども</th><td>700円</td></tr>
+          <tr><th>支払い</th><td>現金のみ</td></tr>
+          <tr><th>営業時間</th><td>9:00〜23:00</td></tr>
+          <tr><th>最終受付</th><td>22:00</td></tr>
+          <tr><th>定休日</th><td>なし（ただし12月中旬に5日程度の休館あり）</td></tr>
+          <tr><th>雰囲気</th><td>静けさを大切にする湯治場。会話も足音も控えめに。</td></tr>
+        </tbody>
+      </table>
+      <p class="note-line">📌 料金・営業時間・休館日は記事作成時点の想定。出発前に必ず公式サイトの最新情報を確認する。公式の利用案内には、ひとりで静かに過ごすことを良しとする趣旨の記載があり、今日のように「ひとりで何もしない」過ごし方に向いている。</p>
+    </section>
+
+    <section class="section" id="bath">
+      <h2>🛁 湯の入り方</h2>
+      <p class="section-lead">今日の目的は観光ではなく療養。湯を「巡る」のではなく、脚を「戻す」ために入る。攻めない入り方を最初に決めておく。</p>
+      <div class="bath-grid">
+        <div class="bath-rule">
+          <strong>交互浴でほぐす</strong>
+          <p>ぬるめ → 熱め → ぬるめの順で。血のめぐりを上げて、こわばった脚をゆっくりゆるめる。</p>
+        </div>
+        <div class="bath-rule">
+          <strong>1回10〜15分まで</strong>
+          <p>長湯はしない。気持ちいいからと浸かりすぎると、かえって体力を削る。短く、こまめに。</p>
+        </div>
+        <div class="bath-rule">
+          <strong>脚を意識して温める</strong>
+          <p>ふくらはぎ・足裏・すね周りを中心に。湯の中で軽くさすってもいい。</p>
+        </div>
+        <div class="bath-rule">
+          <strong>疲れている日は攻めない</strong>
+          <p>疲労が強い日は熱い湯に入りすぎない。サウナや蒸し湯は無理に使わず、使うとしても短時間で。</p>
+        </div>
+        <div class="bath-rule">
+          <strong>水分をこまめに</strong>
+          <p>湯に入る前後で水分補給。脱衣所に飲み物を用意しておく。</p>
+        </div>
+        <div class="bath-rule">
+          <strong>のぼせ・立ちくらみに注意</strong>
+          <p>少しでもくらっときたら、すぐ上がって休む。今日は無理をしないことが一番の作法。</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="lunch">
+      <h2>🍚 昼食</h2>
+      <p class="section-lead">湯上がりに重すぎない一膳を。第一候補は山法師の自然薯系。がっつり食べたい気分なら楽天、休憩したいだけならカフェ、と気分で選ぶ。いずれも予約不可なので、空いていなければ無理に待たない。</p>
+      <div class="spot-grid">
+        <article class="spot-card clay">
+          <h4>滋養料理「山法師」</h4>
+          <div class="spot-meta"><span class="tag-pill eat">第一候補</span></div>
+          <p>自然薯・とろろ・麦とろを中心にした滋養料理。自然薯そばや麦とろなら、湯上がりの体にちょうどいい軽さ。今日の体を戻す昼食としては本命。</p>
+          <p class="hours">土日祝 昼 11:00〜15:00（LO 14:00）／休：水・木／予約不可</p>
+        </article>
+        <article class="spot-card clay">
+          <h4>温泉湯くぐり「楽天」</h4>
+          <div class="spot-meta"><span class="tag-pill eat">がっつり派</span></div>
+          <p>温泉しゃぶしゃぶの店。しっかり食べたい日の候補として頭の隅に。今日はおそらく山法師の軽い一膳で十分だけれど、念のため。</p>
+          <p class="hours">土日 昼 11:30〜16:00（LO 15:00）／休：月・火・金／予約不可</p>
+        </article>
+        <article class="spot-card clay">
+          <h4>カフェ「うかれ雲」</h4>
+          <div class="spot-meta"><span class="tag-pill eat">湯上がりの一杯</span></div>
+          <p>湯上がりの休憩や珈琲に。食事というより、ひと息つく場所として軽く立ち寄る候補。</p>
+          <p class="hours">10:00〜20:00（LO 19:30）</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="afternoon">
+      <h2>🌿 午後の過ごし方</h2>
+      <p class="section-lead">午後は「何もしない時間」を、ちゃんと予定に入れる。基本はざしきぼっこで横になる。確実に昼寝場所を確保したい日は、貸座敷を上級オプションとして検討する。</p>
+      <div class="spot-grid">
+        <article class="spot-card">
+          <h4>お休み処「ざしきぼっこ」</h4>
+          <div class="spot-meta"><span class="tag-pill rest">今日の主目的</span></div>
+          <p>須雲川のほとりで横になって休める場所。今日の「脚を癒す」「何もしない」に一番合う。午後はここで川の音を聞きながら寝る。これが今回のメインイベント。</p>
+          <p class="hours">10:00〜22:00</p>
+        </article>
+        <article class="spot-card">
+          <h4>貸座敷「離れ雲」</h4>
+          <div class="spot-meta"><span class="tag-pill rest">上級休養オプション</span></div>
+          <p>ひとりで確実に昼寝場所を確保したいときの選択肢。利用者は男女別浴の「奥の湯」に入浴できる。家族風呂・貸切風呂ではない点に注意。混雑が読めない日や、しっかり寝たい日に。</p>
+          <p class="hours">10:00〜18:00（最終受付16:00）／基本室料 4,500円・2時間・1室3名まで／延長 1,800円・1時間／朝湯割引 4,500円・10〜13時／おひとりさま限定「雲隠れ」4,200円・4時間</p>
+        </article>
+      </div>
+      <p class="note-line">💤 空いていれば、まずはざしきぼっこで十分。混んでいて落ち着かないようなら「雲隠れ」に切り替える、くらいの構えでいる。どちらにしても、午後は寝るための時間。</p>
+    </section>
+
+    <section class="section" id="packing">
+      <h2>🎒 持ち物</h2>
+      <p class="section-lead">必要なものだけ。今日は身軽でいい。引き算の日なので、荷物も最小限にする。</p>
+      <div class="check-grid">
+        <div class="check-item">現金<small>入館料・食事は現金のみ。多めに用意。</small></div>
+        <div class="check-item">フェイスタオル<small>かけ湯・体ふき用。</small></div>
+        <div class="check-item">バスタオル<small>必要ならレンタルでもよい。</small></div>
+        <div class="check-item">飲み物<small>湯あたり防止に水分。</small></div>
+        <div class="check-item">脱ぎ着しやすい服<small>何度も湯に出入りするので楽な服装で。</small></div>
+        <div class="check-item">モバイルバッテリー<small>最低限。基本はスマホをしまっておく。</small></div>
+        <div class="check-item skip">カメラ（D5300）<small>今回は不要。撮らない日にする。</small></div>
+      </div>
+    </section>
+
+    <section class="section detox" id="detox">
+      <h2>📵 撮らない、記録しすぎない日</h2>
+      <div class="lead-text">
+        <p>天山湯治郷は静けさを大事にする湯治場だ。だから今日は、写真を撮りに行く旅にはしない。いつもならD5300を持って空や道を撮るところだけれど、今回はカメラを家に置いていく。</p>
+        <p>スマホもなるべくしまっておく。湯の写真も、昼食の写真も、無理に残さない。代わりに、湯の温度や川の音、自然薯の味を、その場で味わうことに集中する。</p>
+        <p>このしおり自体も、現地で更新しようとはしない。帰宅後に、記憶をたどって振り返る。記録は後からでいい。今日はまず、休むことを優先する。</p>
+      </div>
+      <p class="pull-quote">撮らない。記録しすぎない。ただ、湯に入って、寝て、帰る。</p>
+    </section>
+
+    <section class="section post-visit" id="memo">
+      <h2>📝 帰ってからのメモ</h2>
+      <p class="section-lead">この欄は後日追記用の空欄。帰宅後、記憶をたどって、実際どうだったかを書き足す。今は空けておく。</p>
+      <div class="memo-grid">
+        <article class="memo-card">
+          <h3>実際の混雑</h3>
+          <p>（後日記入：午前・午後それぞれの混み具合）</p>
+        </article>
+        <article class="memo-card">
+          <h3>実際に入った湯</h3>
+          <p>（後日記入：どの湯に、どんな順で入ったか）</p>
+        </article>
+        <article class="memo-card">
+          <h3>食べたもの</h3>
+          <p>（後日記入：山法師か楽天か、何を食べたか）</p>
+        </article>
+        <article class="memo-card">
+          <h3>脚の回復具合</h3>
+          <p>（後日記入：翌朝の脚の軽さ、ふくらはぎの張り）</p>
+        </article>
+        <article class="memo-card">
+          <h3>次回の改善点</h3>
+          <p>（後日記入：出発時刻、滞在時間、入り方の調整）</p>
+        </article>
+        <article class="memo-card">
+          <h3>その日感じたこと</h3>
+          <p>（後日記入：何もしない一日をどう感じたか）</p>
+        </article>
+      </div>
+    </section>
+
+    <p class="footer-note">AgentAir / Personal Knowledge - 箱根・天山湯治郷 ひとり日帰り療養しおり</p>
+  </main>
+
+  <button class="page-top-button" type="button" aria-label="ページ上部へ戻る">↑</button>
+
+  <script>
+    const pageTopButton = document.querySelector(".page-top-button");
+
+    const togglePageTopButton = () => {
+      pageTopButton.classList.toggle("is-visible", window.scrollY > 300);
+    };
+
+    pageTopButton.addEventListener("click", () => {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
+    });
+
+    window.addEventListener("scroll", togglePageTopButton, { passive: true });
+    togglePageTopButton();
+  </script>
+</body>
+</html>

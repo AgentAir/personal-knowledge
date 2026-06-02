@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>忘れやすい自分と和解するまで ― ダメな部分を消すのをやめた話</title>
+  <link rel="stylesheet" href="../style.css">
+  <style>
+    :root {
+      --article-text: #222;
+      --article-muted: #64748b;
+      --article-card: #fff;
+      --article-border: #e5e7eb;
+      --article-soft: #f8fafc;
+      --figure-text: #1f2937;
+      --figure-muted: #64748b;
+      --figure-line: #94a3b8;
+      --figure-neutral: #f1f5f9;
+      --figure-reject: #fef2f2;
+      --figure-reject-line: #fca5a5;
+      --figure-accept: #ecfdf5;
+      --figure-accept-line: #34d399;
+      --figure-accent: #eff6ff;
+      --figure-accent-line: #60a5fa;
+    }
+
+    .decision-note {
+      background: var(--article-soft);
+      border: 1px solid var(--article-border);
+      border-left: 5px solid #2563eb;
+      border-radius: 12px;
+      padding: 16px 18px;
+    }
+
+    .decision-figure {
+      margin: 24px 0 8px;
+    }
+
+    .decision-figure svg {
+      display: block;
+      width: 100%;
+      height: auto;
+      color: var(--figure-text);
+    }
+
+    .decision-figure figcaption {
+      margin-top: 10px;
+      color: var(--article-muted);
+      font-size: 0.92rem;
+    }
+
+    .decision-svg-text {
+      fill: var(--figure-text);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    .decision-svg-muted {
+      fill: var(--figure-muted);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    .decision-svg-line {
+      stroke: var(--figure-line);
+      stroke-width: 0.5;
+      fill: none;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --article-text: #e5e7eb;
+        --article-muted: #94a3b8;
+        --article-card: #111827;
+        --article-border: #334155;
+        --article-soft: #0f172a;
+        --figure-text: #e5e7eb;
+        --figure-muted: #cbd5e1;
+        --figure-line: #64748b;
+        --figure-neutral: #1e293b;
+        --figure-reject: #3b1f24;
+        --figure-reject-line: #fb7185;
+        --figure-accept: #12372a;
+        --figure-accept-line: #34d399;
+        --figure-accent: #172554;
+        --figure-accent-line: #60a5fa;
+      }
+
+      body {
+        color: var(--article-text);
+        background: #020617;
+      }
+
+      .card,
+      .article-card {
+        background: var(--article-card);
+        border-color: var(--article-border);
+        box-shadow: none;
+      }
+
+      .meta,
+      footer {
+        color: var(--article-muted);
+      }
+
+      a {
+        color: #93c5fd;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="container">
+    <p>
+      <a href="../index.html">← Personal Knowledge</a> /
+      <a href="https://agentair.github.io/">Shin infra Lab</a>
+    </p>
+
+    <h1>忘れやすい自分と和解するまで ― ダメな部分を消すのをやめた話</h1>
+    <p class="meta">Category: life / 内省・学び・記憶</p>
+
+    <section class="card">
+      <h2>はじめに</h2>
+      <p>
+        <a href="2026-06-self-analysis-social-books.html">第一部</a>・
+        <a href="2026-06-self-analysis-passion-and-aspiration.html">第二部</a>から続く、自己分析の最終部。
+        ここで一番深いところに降りた。話の流れとしては、「漫画のお気に入りシーン集」を分析してもらったことから
+        「学びの原理への関心」が見つかり、それが「忘れやすさ」という自己認識につながり、
+        最後に「ダメな部分との和解」に着地した。その順に書く。
+      </p>
+      <div class="decision-note">
+        <p>
+          用語補足:
+          「★」は自分が作品につけている5段階評価のこと。
+          「すばひび」は『素晴らしき日々 〜不連続存在〜』の通称。
+          「軸B」は第二部で整理した「ロジックと人間の弱さがぶつかる物語」の軸。
+          「ヒュース案件」は、事実を見る前に先回りして悲観する自分の癖につけた名前。
+        </p>
+        <p>
+          「Lab 試験」は実機・実環境を操作して理解を証明する実技試験。
+          「NSO」は Cisco NSO(Network Services Orchestrator)。
+          「DEVCOR」は自動化分野のコア試験。
+          「聖地巡礼」は漫画やアニメの舞台になった実際の場所を訪れて撮ること。
+          『超かぐや姫』は、その対象にしている作品の一つ。
+        </p>
+      </div>
+      <p class="decision-note">
+        連作の続き:
+        <a href="2026-06-self-analysis-social-books.html">第一部 / 社会本にハマった理由</a>、
+        <a href="2026-06-self-analysis-passion-and-aspiration.html">第二部 / 「面白い」と「こうなりたい」</a>、
+        第三部 / 忘れやすさとの和解
+      </p>
+    </section>
+
+    <section class="card">
+      <h2>いきさつ:なぜ「学びの原理」の話になったのか</h2>
+      <p>
+        第二部までの対話のあと、自分がスマホやPCに保存している「漫画のお気に入りシーン」(クリップ)を見てもらった。
+        最初に50枚、次に厳選して140枚。それを分析してもらう中で、新しい軸が見つかった。
+      </p>
+      <p>
+        特に多かったのが <strong>バトルスタディーズ</strong>(野球部の寮生活を描いた漫画)のクリップだった。
+        面白いのは、保存していたのが野球のプレーシーンではなく、ほぼ全部「人生論・分析の語り」の場面だったこと。
+      </p>
+      <ul>
+        <li>「人間は集中力×時間で物事を習得する」</li>
+        <li>「傷つく覚悟ができて初めて腹を括れる」</li>
+        <li>別作品の「人は自ら掴んだ本質しか肚に落ちない」</li>
+      </ul>
+      <p>
+        つまり自分は「どう人は成長するか、何が本当に身につくか」という、
+        <strong>学習という現象そのものの原理</strong>に、繰り返し反応していた。
+        これを対話では「学びの原理への関心」と呼んだ。
+      </p>
+      <p>
+        問われて、この関心の向き先もはっきりした。
+        <strong>「自分が何かを学ぶときの最適化」が中心で、「誰かのために」という視点は学習に関しては一切ない。</strong>
+        一方、仕事になると「周りが理解できるか」は入る。
+        学習は、誰にも邪魔されない自分だけの遊び場なのだと思う。
+      </p>
+    </section>
+
+    <section class="card">
+      <h2>いきさつ:なぜ「忘れやすさ」の話になったのか</h2>
+      <p>
+        「なぜ学習の最適化にそこまで関心が向くのか」と掘られて、出てきたのが、
+        抽象的な好奇心ではない、具体的な自己認識だった。
+      </p>
+      <p class="decision-note">
+        自分は忘れやすい。生活の中で、他の人と比べて忘れていること、
+        できないことがあるという記憶が、昔からある。
+      </p>
+      <p>
+        忘れやすいからこそ、どうすれば定着するかを真剣に考えてきた。
+      </p>
+      <ul>
+        <li>自分の言葉でまとめる(まとめると忘れにくい)</li>
+        <li>学習過程ごと記録する</li>
+        <li>段階を踏む</li>
+        <li>継続を最優先にする(疲れた日でも15分)</li>
+      </ul>
+      <p>
+        これら全部、「忘れやすい自分」という前提から逆算して編み出した、自分なりの学習設計だった。
+      </p>
+      <p>
+        そして、このブログの正体もここにある。問われて気づいたのだが、
+        <strong>このブログは教育コンテンツではなく、外部化した自分の記憶だ。</strong>
+        忘れやすい自分が、自分の言葉でまとめると忘れにくいから詳細に書いている。
+        公開されているのは副産物にすぎない。
+      </p>
+      <p>
+        第一部で「How toよりWhyに反応する」と書いたが、これも同じ根かもしれない。
+        人から与えられた手順(How to)はすぐ忘れる。
+        でも、自分でなぜそうなるかを理解して、自分の言葉に変換したもの(Why)は残る。
+        <strong>Why の形でしか記憶に定着しない</strong>という、自分の特性そのものだったのだと思う。
+      </p>
+    </section>
+
+    <section class="card">
+      <h2>弱点を、戦える土俵に変えてきた</h2>
+      <p>
+        ここで見方が一つ反転した。
+      </p>
+      <p>
+        多くの人は「忘れやすい」と感じると、自信をなくしたり苦手を避けたりして終わる。
+        でも自分は、「忘れやすい自分」を出発点にして、忘れない方法を自分で設計する方向に進んだ。
+      </p>
+      <p>
+        考えてみれば、忘れやすいと感じている人間が、忘れたら困る情報を扱うインフラエンジニアになり、
+        暗記では通用しない Lab 型の資格(CCIE Automation)を本命に選んでいる。
+        これは矛盾ではなく、<strong>自分の弱点を、戦える土俵に変えてきた</strong>ということだ。
+        暗記が頼りないからこそ Why で理解する癖がつき、それが生成AI時代の強みになった。
+        第二部の「Lab 試験はホームグラウンド」も、根っこはここにあった。
+      </p>
+    </section>
+
+    <section class="card">
+      <h2>いきさつ:なぜ写真の話になったのか</h2>
+      <p>
+        「忘れやすさ」が、写真の意味も照らし直した。
+        これは「過ぎ去るもの(第一部)」と「忘れやすさ(第三部)」が、
+        写真という一つの行為で合流していることに気づいた流れだった。
+      </p>
+      <p>
+        自分の写真には二種類ある、と整理された。
+      </p>
+
+      <table>
+        <thead>
+          <tr>
+            <th></th>
+            <th>風景・聖地巡礼</th>
+            <th>何気ない日常</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th>例</th>
+            <td>超かぐや姫の聖地を撮りに行く</td>
+            <td>友達との時間、実家の部屋</td>
+          </tr>
+          <tr>
+            <th>心の動き</th>
+            <td>美しいものを留めたい</td>
+            <td>自分の時間を留めたい</td>
+          </tr>
+          <tr>
+            <th>近い行為</th>
+            <td>作品を作る</td>
+            <td>日記をつける</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p class="decision-note">
+        ※「聖地巡礼」は、漫画やアニメの舞台になった実際の場所を訪れて撮ること。
+        『超かぐや姫』はその対象にしている作品の一つで、立川や三郷(埼玉)がモデル地。
+      </p>
+      <p>
+        「後で見返して撮っておいてよかったと感じるのはどっち?」と聞かれて、
+        迷わず「何気ない日常のほう」と答えた。
+        これは第一部の「誰かと一緒の、目的のない時間」=幸福の原型とぴったり重なる。
+      </p>
+      <p>
+        つまり写真は、二つの根が一つの行為で合流していた。
+      </p>
+      <ul>
+        <li><strong>過ぎ去るものへの感受性</strong>(時間の手触りを留めたい)</li>
+        <li><strong>忘れやすい自分の記憶の外部化</strong>(後で思い出すために残す)</li>
+      </ul>
+    </section>
+
+    <section class="card">
+      <h2>義務感というズレ、そして一手</h2>
+      <p>
+        ここで、最近の引っかかりを思い出した。
+        「D5300(一眼。タダで譲り受けたカメラ)をもらったので、きれいな写真を撮らなきゃ」という意識が出ていた、と。
+      </p>
+      <p>
+        これは本来の自分の欲求(何気ない時間を留めること)とは別の、機材への義務感だった。
+        そして対話で気づいたのは、これが第二部の学習の話と同じ構造だということ。
+        「面白い・撮りたい」で動くと一番いいのに、「〜しなきゃ」が混じると芯からズレる。
+      </p>
+      <p>
+        実際、義務感が出てから写真を撮る回数が減り、「写真フォルダーが寂しい」と感じていた。
+        これはただの寂しさではなかった。忘れやすい自分にとって、写真フォルダーは外部化された記憶そのもの。
+        それが寂しい = 最近の自分の時間が記録に残っていない = 過ぎ去っているのに留められていない、ということだった。
+      </p>
+      <p>
+        ここから出た一手はシンプルだ。
+        <strong>「きれいに撮らなきゃ」を下ろして、何気ない今を構えずに撮る習慣に戻す。</strong>
+        「明日一枚撮るなら何を撮りたいか」と聞かれて、ぱっと浮かんだのは「今住んでいる部屋や生活圏の風景」だった。
+        それは、今のこの生活もいつか過ぎ去って懐かしくなると、どこかで分かっているということ。
+        過ぎ去るものへの感受性が、過去だけでなく今この瞬間にも向き始めている。
+      </p>
+    </section>
+
+    <section class="card">
+      <h2>一番深いところ:ダメな部分を消すのをやめた</h2>
+      <p>
+        最後に、二日間で一番深いところに着いた。
+        きっかけは、第二部の終わりの「今は(自分をダメダメと)思わなくなった」という一言を掘られたことだった。
+      </p>
+      <p>
+        自分の言葉でいうと、こうなった。
+      </p>
+      <p class="decision-note">
+        リゼロや本を読み漁っていた時は、自己成長でダメな部分を消したいと考えていた。
+        でも今は、ダメな部分もあるけど改善するサイクルが整っていると思っていて、
+        時間をかければある程度のことはどんなことでも対処できると考えている。
+      </p>
+      <p>
+        これは大きな転換だった。
+      </p>
+
+      <table>
+        <thead>
+          <tr>
+            <th></th>
+            <th>当時</th>
+            <th>今</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th>ダメな部分への態度</th>
+            <td>消したい(自己成長で埋める)</td>
+            <td>あるけど、付き合いながら進む</td>
+          </tr>
+          <tr>
+            <th>拠り所</th>
+            <td>より良い自分に変わること</td>
+            <td>対処する仕組みを持っていること</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p>
+        そして、ここで第一部の最初の問いが一周して戻ってきた。
+        <strong>なぜ自己啓発本に刺さらなくなって、社会本に向かったのか。</strong>
+      </p>
+      <p>
+        自己啓発本は「ダメな自分を、より良い自分に変えよう」という本だ。
+        ダメな部分を消したかった当時の自分には、本来ぴったりのはずだった。
+        そこから離れていったのは、<strong>自分自身が「ダメな部分を消す」という発想を卒業したから</strong>だ。
+        消すべき欠点ではなく、付き合うべき自分として受け入れた。
+        だから「変われ、成長しろ」と急かす本が必要なくなり、
+        人間や社会を「こういうものだ」と観察する社会本のほうがしっくりくるようになった。
+      </p>
+      <p>
+        読書傾向の変化は、自己受容の変化の、そのままの現れだった。
+      </p>
+    </section>
+
+    <section class="card">
+      <h2>まとめ:この二日間で見えた流れ</h2>
+      <figure class="decision-figure">
+        <svg width="100%" viewBox="0 0 680 760" role="img" xmlns="http://www.w3.org/2000/svg" style="max-width:680px;display:block;margin:1.5rem auto">
+<title>二日間の自己分析の流れ全体図</title>
+<desc>社会本という入口から、問いが次々に深まり、最後に「ダメな部分との和解」に着地するまでの流れ。色は記事の三部に対応する。</desc>
+<defs>
+<marker id="flow-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></marker>
+</defs>
+
+<style>
+.fl-title { font-family: sans-serif; font-size: 14px; font-weight: 500; }
+.fl-sub { font-family: sans-serif; font-size: 12px; }
+.fl-arr { stroke: #888780; stroke-width: 1.5; fill: none; }
+.fl-1 rect { fill: #E1F5EE; stroke: #0F6E56; }
+.fl-1 .fl-title { fill: #085041; }
+.fl-1 .fl-sub { fill: #0F6E56; }
+.fl-2 rect { fill: #FAEEDA; stroke: #854F0B; }
+.fl-2 .fl-title { fill: #633806; }
+.fl-2 .fl-sub { fill: #854F0B; }
+.fl-3 rect { fill: #EEEDFE; stroke: #534AB7; }
+.fl-3 .fl-title { fill: #3C3489; }
+.fl-3 .fl-sub { fill: #534AB7; }
+@media (prefers-color-scheme: dark) {
+  .fl-arr { stroke: #b4b2a9; }
+  .fl-1 rect { fill: #085041; stroke: #9FE1CB; }
+  .fl-1 .fl-title { fill: #9FE1CB; } .fl-1 .fl-sub { fill: #5DCAA5; }
+  .fl-2 rect { fill: #633806; stroke: #FAC775; }
+  .fl-2 .fl-title { fill: #FAC775; } .fl-2 .fl-sub { fill: #EF9F27; }
+  .fl-3 rect { fill: #3C3489; stroke: #CECBF6; }
+  .fl-3 .fl-title { fill: #CECBF6; } .fl-3 .fl-sub { fill: #AFA9EC; }
+}
+</style>
+
+<text class="fl-title" x="340" y="28" text-anchor="middle">二日間の自己分析:問いが降りていった流れ</text>
+
+<g class="fl-1">
+<rect x="170" y="44" width="340" height="48" rx="8" stroke-width="0.5"/>
+<text class="fl-title" x="340" y="63" text-anchor="middle" dominant-baseline="central">社会本にハマった(入口)</text>
+<text class="fl-sub" x="340" y="80" text-anchor="middle" dominant-baseline="central">第一部</text>
+</g>
+<line x1="340" y1="92" x2="340" y2="116" class="fl-arr" marker-end="url(#flow-arrow)"/>
+
+<g class="fl-1">
+<rect x="170" y="116" width="340" height="48" rx="8" stroke-width="0.5"/>
+<text class="fl-title" x="340" y="135" text-anchor="middle" dominant-baseline="central">How toより Why に反応する</text>
+<text class="fl-sub" x="340" y="152" text-anchor="middle" dominant-baseline="central">スマホ脳のグレースケールの例</text>
+</g>
+<line x1="340" y1="164" x2="340" y2="188" class="fl-arr" marker-end="url(#flow-arrow)"/>
+
+<g class="fl-1">
+<rect x="170" y="188" width="340" height="48" rx="8" stroke-width="0.5"/>
+<text class="fl-title" x="340" y="207" text-anchor="middle" dominant-baseline="central">すばひびが★4だった理由</text>
+<text class="fl-sub" x="340" y="224" text-anchor="middle" dominant-baseline="central">理解しきれなくても落ち着けるか</text>
+</g>
+<line x1="340" y1="236" x2="340" y2="260" class="fl-arr" marker-end="url(#flow-arrow)"/>
+
+<g class="fl-1">
+<rect x="170" y="260" width="340" height="48" rx="8" stroke-width="0.5"/>
+<text class="fl-title" x="340" y="279" text-anchor="middle" dominant-baseline="central">過ぎ去るものへの感受性</text>
+<text class="fl-sub" x="340" y="296" text-anchor="middle" dominant-baseline="central">子供の頃の夏・誰かといた時間</text>
+</g>
+<line x1="340" y1="308" x2="340" y2="332" class="fl-arr" marker-end="url(#flow-arrow)"/>
+
+<g class="fl-2">
+<rect x="170" y="332" width="340" height="48" rx="8" stroke-width="0.5"/>
+<text class="fl-title" x="340" y="351" text-anchor="middle" dominant-baseline="central">教養ある機知への憧れ</text>
+<text class="fl-sub" x="340" y="368" text-anchor="middle" dominant-baseline="central">第二部 ／ 面白い×こうなりたい</text>
+</g>
+<line x1="340" y1="380" x2="340" y2="404" class="fl-arr" marker-end="url(#flow-arrow)"/>
+
+<g class="fl-2">
+<rect x="170" y="404" width="340" height="48" rx="8" stroke-width="0.5"/>
+<text class="fl-title" x="340" y="423" text-anchor="middle" dominant-baseline="central">キャリア:CCIE Automation</text>
+<text class="fl-sub" x="340" y="440" text-anchor="middle" dominant-baseline="central">怖さの正体はNSO一点だった</text>
+</g>
+<line x1="340" y1="452" x2="340" y2="476" class="fl-arr" marker-end="url(#flow-arrow)"/>
+
+<g class="fl-2">
+<rect x="170" y="476" width="340" height="48" rx="8" stroke-width="0.5"/>
+<text class="fl-title" x="340" y="495" text-anchor="middle" dominant-baseline="central">軸B:弱さを抱えて踏み出す</text>
+<text class="fl-sub" x="340" y="512" text-anchor="middle" dominant-baseline="central">リゼロのスバルに共感した理由</text>
+</g>
+<line x1="340" y1="524" x2="340" y2="548" class="fl-arr" marker-end="url(#flow-arrow)"/>
+
+<g class="fl-3">
+<rect x="170" y="548" width="340" height="48" rx="8" stroke-width="0.5"/>
+<text class="fl-title" x="340" y="567" text-anchor="middle" dominant-baseline="central">学びの原理への関心</text>
+<text class="fl-sub" x="340" y="584" text-anchor="middle" dominant-baseline="central">第三部 ／ 忘れやすい自分の設計</text>
+</g>
+<line x1="340" y1="596" x2="340" y2="620" class="fl-arr" marker-end="url(#flow-arrow)"/>
+
+<g class="fl-3">
+<rect x="170" y="620" width="340" height="48" rx="8" stroke-width="0.5"/>
+<text class="fl-title" x="340" y="639" text-anchor="middle" dominant-baseline="central">弱点を戦える土俵に変えてきた</text>
+<text class="fl-sub" x="340" y="656" text-anchor="middle" dominant-baseline="central">写真=過ぎ去るもの+記憶の外部化</text>
+</g>
+<line x1="340" y1="668" x2="340" y2="692" class="fl-arr" marker-end="url(#flow-arrow)"/>
+
+<g class="fl-3">
+<rect x="150" y="692" width="380" height="52" rx="8" stroke-width="1"/>
+<text class="fl-title" x="340" y="711" text-anchor="middle" dominant-baseline="central">ダメな部分を消す → 付き合いながら進む</text>
+<text class="fl-sub" x="340" y="729" text-anchor="middle" dominant-baseline="central">着地点:自分と和解する</text>
+</g>
+</svg>
+      </figure>
+      <p>
+        ダメな部分を抱えたまま、改善のサイクルを回して、時間をかけて対処していける自分。
+        リゼロのスバルに憧れていた頃の自分が見たら、「ちゃんと前に進めたんだな」と思うはずだ。
+      </p>
+      <p>
+        自分を変えようとする人から、自分と付き合っていく人へ。
+        二日間の自己分析は、結局そこに着地した。
+      </p>
+    </section>
+
+    <section class="card">
+      <h2>連作を振り返る</h2>
+      <p>
+        入口になった
+        <a href="2026-06-self-analysis-social-books.html">第一部</a>では社会本にハマった理由から子供の頃の夏へ降りていき、
+        <a href="2026-06-self-analysis-passion-and-aspiration.html">第二部</a>では「面白い」と「こうなりたい」が一体だったことを見た。
+        この第三部では、その流れが「忘れやすい自分」との和解に着地した。
+      </p>
+    </section>
+
+    <footer>
+      <p>AgentAir / Personal Knowledge</p>
+      <p><a href="../index.html">Personal Knowledgeへ戻る</a></p>
+    </footer>
+  </main>
+</body>
+</html>

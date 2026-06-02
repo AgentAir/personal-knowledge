@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ポイント枠の使い道が、ScreenBar Halo 2に着地するまで</title>
+  <link rel="stylesheet" href="../style.css">
+  <style>
+    :root {
+      --article-text: #222;
+      --article-muted: #64748b;
+      --article-card: #fff;
+      --article-border: #e5e7eb;
+      --article-soft: #f8fafc;
+      --figure-text: #1f2937;
+      --figure-muted: #64748b;
+      --figure-line: #94a3b8;
+      --figure-neutral: #f1f5f9;
+      --figure-reject: #fef2f2;
+      --figure-reject-line: #fca5a5;
+      --figure-accept: #ecfdf5;
+      --figure-accept-line: #34d399;
+      --figure-accent: #eff6ff;
+      --figure-accent-line: #60a5fa;
+    }
+
+    .decision-note {
+      background: var(--article-soft);
+      border: 1px solid var(--article-border);
+      border-left: 5px solid #2563eb;
+      border-radius: 12px;
+      padding: 16px 18px;
+    }
+
+    .decision-figure {
+      margin: 24px 0 8px;
+    }
+
+    .decision-figure svg {
+      display: block;
+      width: 100%;
+      height: auto;
+      color: var(--figure-text);
+    }
+
+    .decision-figure figcaption {
+      margin-top: 10px;
+      color: var(--article-muted);
+      font-size: 0.92rem;
+    }
+
+    .decision-svg-text {
+      fill: var(--figure-text);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    .decision-svg-muted {
+      fill: var(--figure-muted);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    .decision-svg-line {
+      stroke: var(--figure-line);
+      stroke-width: 0.5;
+      fill: none;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --article-text: #e5e7eb;
+        --article-muted: #94a3b8;
+        --article-card: #111827;
+        --article-border: #334155;
+        --article-soft: #0f172a;
+        --figure-text: #e5e7eb;
+        --figure-muted: #cbd5e1;
+        --figure-line: #64748b;
+        --figure-neutral: #1e293b;
+        --figure-reject: #3b1f24;
+        --figure-reject-line: #fb7185;
+        --figure-accept: #12372a;
+        --figure-accept-line: #34d399;
+        --figure-accent: #172554;
+        --figure-accent-line: #60a5fa;
+      }
+
+      body {
+        color: var(--article-text);
+        background: #020617;
+      }
+
+      .card,
+      .article-card {
+        background: var(--article-card);
+        border-color: var(--article-border);
+        box-shadow: none;
+      }
+
+      .meta,
+      footer {
+        color: var(--article-muted);
+      }
+
+      a {
+        color: #93c5fd;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="container">
+    <p>
+      <a href="../index.html">← Personal Knowledge</a> /
+      <a href="https://agentair.github.io/">Shin infra Lab</a>
+    </p>
+
+    <h1>ポイント枠の使い道が、ScreenBar Halo 2に着地するまで</h1>
+    <p class="meta">Category: life / 福利厚生・意思決定・デスク環境</p>
+
+    <section class="card">
+      <h2>発端</h2>
+      <p>
+        ある補助制度のポイント枠が残っていた。金額としては、ちょっとした家電や周辺機器なら買えるくらい。
+        せっかくなら使い切りたい。けれど、候補を並べても心が動かなかった。
+      </p>
+      <p>
+        空気清浄機、モニターライト、カメラのレンズ、コーヒー、Apple Watch。
+        どれも悪くない。生活が少し良くなる可能性はある。
+        ただ、どれも「これだ」と言い切れるほどではなかった。
+      </p>
+      <p>
+        最初は、単に候補選びが下手なのだと思っていた。
+        でもAIとの長い対話を続けるうちに、問題は候補の質ではなく、自分の生活の中に補助で埋めたい隙間があまり残っていないことなのだと見えてきた。
+      </p>
+    </section>
+
+    <section class="card">
+      <h2>候補を外すうちに、基準が出てきた</h2>
+      <p>
+        最初の作業は、欲しいもの探しというより、違和感の仕分けだった。
+        空気清浄機は便利そうだが、今の生活で明確な不満があるわけではない。
+        レンズは趣味の中核に近い。だからこそ、補助で買うより自費で責任を持って選びたい。
+        コーヒーは消えるものとしては良いが、使い切ったら終わる。
+      </p>
+      <p>
+        外していった理由を並べると、少しずつ自分の判断基準が形になった。
+        それは「安いから」「ポイントで買えるから」ではなく、自分の生活哲学との相性だった。
+      </p>
+
+      <figure class="decision-figure">
+        <svg viewBox="0 0 760 520" width="100%" role="img" aria-labelledby="filter-title filter-desc">
+          <title id="filter-title">判断基準のフィルター図</title>
+          <desc id="filter-desc">候補が複数の判断基準を通り、毎日使う物理的な改善に絞られる様子。</desc>
+          <defs>
+            <marker id="filter-arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+              <path d="M0,0 L8,4 L0,8 Z" fill="var(--figure-line)"></path>
+            </marker>
+          </defs>
+
+          <rect x="40" y="28" width="210" height="58" rx="10" fill="var(--figure-neutral)" stroke="var(--figure-line)" stroke-width="0.5"></rect>
+          <text x="145" y="53" text-anchor="middle" class="decision-svg-text" font-size="15" font-weight="700">候補の山</text>
+          <text x="145" y="73" text-anchor="middle" class="decision-svg-muted" font-size="12">悪くないものたち</text>
+
+          <g>
+            <rect x="310" y="28" width="300" height="54" rx="10" fill="var(--figure-accent)" stroke="var(--figure-accent-line)" stroke-width="0.5"></rect>
+            <text x="460" y="51" text-anchor="middle" class="decision-svg-text" font-size="14" font-weight="700">モノとして残る</text>
+            <text x="460" y="69" text-anchor="middle" class="decision-svg-muted" font-size="11">継続費用ではない</text>
+
+            <rect x="310" y="104" width="300" height="54" rx="10" fill="var(--figure-accent)" stroke="var(--figure-accent-line)" stroke-width="0.5"></rect>
+            <text x="460" y="127" text-anchor="middle" class="decision-svg-text" font-size="14" font-weight="700">一回で完結する</text>
+            <text x="460" y="145" text-anchor="middle" class="decision-svg-muted" font-size="11">制度に依存しない</text>
+
+            <rect x="310" y="180" width="300" height="54" rx="10" fill="var(--figure-reject)" stroke="var(--figure-reject-line)" stroke-width="0.5"></rect>
+            <text x="460" y="203" text-anchor="middle" class="decision-svg-text" font-size="14" font-weight="700">健康・学習は自費</text>
+            <text x="460" y="221" text-anchor="middle" class="decision-svg-muted" font-size="11">背負う領域</text>
+
+            <rect x="310" y="256" width="300" height="54" rx="10" fill="var(--figure-reject)" stroke="var(--figure-reject-line)" stroke-width="0.5"></rect>
+            <text x="460" y="279" text-anchor="middle" class="decision-svg-text" font-size="14" font-weight="700">趣味・身につける物は自費</text>
+            <text x="460" y="297" text-anchor="middle" class="decision-svg-muted" font-size="11">長く付き合う</text>
+
+            <rect x="310" y="332" width="300" height="54" rx="10" fill="var(--figure-accent)" stroke="var(--figure-accent-line)" stroke-width="0.5"></rect>
+            <text x="460" y="355" text-anchor="middle" class="decision-svg-text" font-size="14" font-weight="700">毎日触れる</text>
+            <text x="460" y="373" text-anchor="middle" class="decision-svg-muted" font-size="11">価値が積み上がる</text>
+          </g>
+
+          <line x1="250" y1="57" x2="302" y2="57" class="decision-svg-line" marker-end="url(#filter-arrow)"></line>
+          <path d="M460 82 L460 102" class="decision-svg-line" marker-end="url(#filter-arrow)"></path>
+          <path d="M460 158 L460 178" class="decision-svg-line" marker-end="url(#filter-arrow)"></path>
+          <path d="M460 234 L460 254" class="decision-svg-line" marker-end="url(#filter-arrow)"></path>
+          <path d="M460 310 L460 330" class="decision-svg-line" marker-end="url(#filter-arrow)"></path>
+
+          <rect x="250" y="432" width="360" height="60" rx="12" fill="var(--figure-accept)" stroke="var(--figure-accept-line)" stroke-width="0.5"></rect>
+          <text x="430" y="457" text-anchor="middle" class="decision-svg-text" font-size="15" font-weight="700">毎日の物理的なボトルネック</text>
+          <text x="430" y="478" text-anchor="middle" class="decision-svg-muted" font-size="12">実害を直すもの</text>
+          <path d="M460 386 L460 428" class="decision-svg-line" marker-end="url(#filter-arrow)"></path>
+
+          <text x="68" y="170" class="decision-svg-muted" font-size="12">消耗品</text>
+          <line x1="118" y1="166" x2="292" y2="196" class="decision-svg-line"></line>
+          <text x="68" y="238" class="decision-svg-muted" font-size="12">趣味機材</text>
+          <line x1="126" y1="234" x2="292" y2="278" class="decision-svg-line"></line>
+          <text x="68" y="306" class="decision-svg-muted" font-size="12">健康投資</text>
+          <line x1="126" y1="302" x2="292" y2="204" class="decision-svg-line"></line>
+        </svg>
+        <figcaption>
+          候補を絞ったのではなく、却下理由を積み重ねた結果、補助で買ってよい領域が狭くなっていった。
+        </figcaption>
+      </figure>
+
+      <p>
+        特に大きかったのは、継続費用の肩代わりを避けたいという感覚だった。
+        サブスクや消耗品にポイントを使うと、制度が生活の土台に入り込む。
+        それは少し違うと思った。
+      </p>
+      <p>
+        健康や自己学習も、できれば自費で背負いたい。
+        ランニング、勉強、身体のメンテナンスは、生活の外から与えられるご褒美ではなく、自分が継続して責任を持つ領域だと感じている。
+        趣味や身につけるものも同じで、長く付き合うものほど自分の財布で選びたい。
+      </p>
+    </section>
+
+    <section class="card">
+      <h2>Apple Watchで気づいた、動機の消失</h2>
+      <p>
+        しばらく有力候補に残っていたのがApple Watchだった。
+        ランニングのときにスマホを持たず音楽を聴けるなら便利だと思ったからだ。
+      </p>
+      <p>
+        けれど対話の中で、そもそもの購入動機がもう消えていることに気づいた。
+        以前はランニング中の音楽再生が欲しかった。
+        でも今は、走る時間の使い方や装備の考え方が変わっていて、その不満は中心から外れていた。
+      </p>
+      <p>
+        ここで分かったのは、「昔の自分が欲しがっていたもの」を、今の自分がまだ欲しがっているとは限らないということだった。
+        候補として残っていたのは現在の欲求ではなく、過去の未決定だった。
+      </p>
+    </section>
+
+    <section class="card">
+      <h2>実環境で照明を動かしてみた</h2>
+      <p>
+        最初にScreenBarを見たときは、正直あまり心が躍らなかった。
+        モニターライトは便利そうだが、今あるデスクライトでも何とかなる。
+        そう思っていた。
+      </p>
+      <p>
+        ただ、候補が外れ続ける中で「毎日触れる物理的なボトルネック」という基準が出てきた。
+        そこで、手元の照明を実際に動かして検証した。
+      </p>
+      <p>
+        光源を前に置くと、明るさは足りるが光が目に入る。
+        自分の場合、左目を強く使っている感覚がある。
+        逆にライトを背面に回すと、光源は目に入らないが手元が暗くなる。
+        Dell S2722DCの前で作業する環境では、この二択がボトルネックだった。
+      </p>
+      <p class="decision-note">
+        ここでScreenBarは「なんとなく便利そうな周辺機器」から、「光源を目に入れず、手元だけを照らしたい」という実害に対応する道具へ変わった。
+      </p>
+    </section>
+
+    <section class="card">
+      <h2>思考は一度戻ってきた</h2>
+      <p>
+        面白かったのは、最初に直感で外したScreenBarが、最後に最適解として戻ってきたことだ。
+        直感が間違っていたというより、最初の直感はまだ課題を実証していなかった。
+      </p>
+
+      <figure class="decision-figure">
+        <svg viewBox="0 0 820 360" width="100%" role="img" aria-labelledby="track-title track-desc">
+          <title id="track-title">思考の軌跡図</title>
+          <desc id="track-desc">空気清浄機、レンズ、コーヒー、Apple Watchが外れ、検証を経てScreenBarに収束する流れ。</desc>
+          <defs>
+            <marker id="track-arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+              <path d="M0,0 L8,4 L0,8 Z" fill="var(--figure-line)"></path>
+            </marker>
+          </defs>
+
+          <g>
+            <rect x="30" y="70" width="130" height="58" rx="10" fill="var(--figure-reject)" stroke="var(--figure-reject-line)" stroke-width="0.5"></rect>
+            <text x="95" y="95" text-anchor="middle" class="decision-svg-text" font-size="14" font-weight="700">空気清浄機</text>
+            <text x="95" y="114" text-anchor="middle" class="decision-svg-muted" font-size="11">不満が薄い</text>
+
+            <rect x="200" y="70" width="130" height="58" rx="10" fill="var(--figure-reject)" stroke="var(--figure-reject-line)" stroke-width="0.5"></rect>
+            <text x="265" y="95" text-anchor="middle" class="decision-svg-text" font-size="14" font-weight="700">レンズ</text>
+            <text x="265" y="114" text-anchor="middle" class="decision-svg-muted" font-size="11">趣味は自費</text>
+
+            <rect x="370" y="70" width="130" height="58" rx="10" fill="var(--figure-reject)" stroke="var(--figure-reject-line)" stroke-width="0.5"></rect>
+            <text x="435" y="95" text-anchor="middle" class="decision-svg-text" font-size="14" font-weight="700">コーヒー</text>
+            <text x="435" y="114" text-anchor="middle" class="decision-svg-muted" font-size="11">一回で消える</text>
+
+            <rect x="540" y="70" width="150" height="58" rx="10" fill="var(--figure-reject)" stroke="var(--figure-reject-line)" stroke-width="0.5"></rect>
+            <text x="615" y="95" text-anchor="middle" class="decision-svg-text" font-size="14" font-weight="700">Apple Watch</text>
+            <text x="615" y="114" text-anchor="middle" class="decision-svg-muted" font-size="11">動機が消失</text>
+          </g>
+
+          <line x1="160" y1="99" x2="198" y2="99" class="decision-svg-line" marker-end="url(#track-arrow)"></line>
+          <line x1="330" y1="99" x2="368" y2="99" class="decision-svg-line" marker-end="url(#track-arrow)"></line>
+          <line x1="500" y1="99" x2="538" y2="99" class="decision-svg-line" marker-end="url(#track-arrow)"></line>
+
+          <rect x="300" y="190" width="220" height="58" rx="10" fill="var(--figure-accent)" stroke="var(--figure-accent-line)" stroke-width="0.5"></rect>
+          <text x="410" y="215" text-anchor="middle" class="decision-svg-text" font-size="14" font-weight="700">照明を動かす</text>
+          <text x="410" y="234" text-anchor="middle" class="decision-svg-muted" font-size="11">実環境で検証</text>
+
+          <path d="M615 128 C615 170, 520 178, 450 190" class="decision-svg-line" marker-end="url(#track-arrow)"></path>
+
+          <rect x="600" y="250" width="180" height="62" rx="12" fill="var(--figure-accept)" stroke="var(--figure-accept-line)" stroke-width="0.5"></rect>
+          <text x="690" y="276" text-anchor="middle" class="decision-svg-text" font-size="14" font-weight="700">ScreenBar Halo 2</text>
+          <text x="690" y="296" text-anchor="middle" class="decision-svg-muted" font-size="11">課題に正確</text>
+
+          <path d="M520 224 C570 230, 610 242, 646 250" class="decision-svg-line" marker-end="url(#track-arrow)"></path>
+
+          <text x="40" y="278" class="decision-svg-muted" font-size="12">直感で一度却下</text>
+          <path d="M138 274 C220 320, 500 338, 600 298" class="decision-svg-line" marker-end="url(#track-arrow)"></path>
+        </svg>
+        <figcaption>
+          ScreenBarは最初から正解だったのではなく、実環境の検証を通って意味が変わった。
+        </figcaption>
+      </figure>
+    </section>
+
+    <section class="card">
+      <h2>ScreenBar Halo 2に着地した理由</h2>
+      <p>
+        最終的に選んだのはBenQ ScreenBar Halo 2だった。
+        理由は、今の課題に対して構造が合っていたからだ。
+      </p>
+      <p>
+        求めていたのは、部屋全体を明るくすることではない。
+        光源を目に入れず、モニター前の手元を照らすことだった。
+        Halo 2は非対称配光で机上を照らし、画面や目への直接的な光を抑える設計をうたっている。
+        これは、実際にライトを動かして見つけた問題にそのまま対応していた。
+      </p>
+      <p>
+        もう一つは、目の予防だった。
+        何かが壊れてから買うのではなく、毎日少しずつ負荷がかかる環境を直す。
+        その意味では、派手な満足感よりも、日々の摩耗を減らす買い物に近い。
+      </p>
+      <p>
+        写真を触る時間があることも、判断に影響した。
+        高演色性のライトで手元の色が見やすくなるなら、単なる作業灯ではなく、写真や紙の色を見る環境にも効く。
+        Dell S2722DCの前で文章を書き、写真を眺め、日々の判断をする場所に置くなら、毎日価値が積み上がる。
+      </p>
+    </section>
+
+    <section class="card">
+      <h2>メタな学び</h2>
+      <p>
+        今回の一番大きな発見は、「使い道が見つからない」ことを欠落として見なくてよかった、ということだった。
+        それは選択肢の質が低いからではなく、ある程度自立した生活の中で、補助が必要な隙間が少ないことの裏返しだった。
+      </p>
+      <p>
+        物で生活を改善しようとしすぎない、という原則も再確認した。
+        何となく気分を上げるための物、継続費用を肩代わりする物、趣味の中核に入り込む物は、今回の枠とは相性が悪かった。
+      </p>
+      <p>
+        ただし例外もある。
+        実害があり、その実害が物理的な道具で正確に修正できるなら、物は効く。
+        今回で言えば、光源が目に入る、背面に回すと手元が暗い、という具体的な問題がそれだった。
+      </p>
+      <p>
+        最初に外した選択肢が、検証後に戻ってくる。
+        その過程は、職人ものの作品で好きな「理解が対話で変わっていく」感覚に近かった。
+        AIとの対話は答えを代わりに出すものではなく、自分の基準を言語化し、過去の欲求と現在の課題を分けるための鏡として機能した。
+      </p>
+      <p>
+        だからこの記事に残したいのは、BenQ ScreenBar Halo 2が良い製品かどうかではない。
+        何を買うか決められない状態から、なぜそれなら買ってよいと思えたのか。
+        その意思決定の軌跡そのものだ。
+      </p>
+    </section>
+
+    <footer>
+      <p>AgentAir / Personal Knowledge</p>
+      <p><a href="../index.html">Personal Knowledgeへ戻る</a></p>
+    </footer>
+  </main>
+</body>
+</html>

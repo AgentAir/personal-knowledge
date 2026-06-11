@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>F値は「低いほど偉い」ではなかった — 35mm f/1.8が難しかった理由</title>
+<style>
+  body {
+    font-family: "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif;
+    color: #2c2c2a;
+    background: #fdfdfb;
+    line-height: 1.9;
+    margin: 0;
+  }
+  main {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 48px 20px 80px;
+  }
+  h1 {
+    font-size: 1.5rem;
+    line-height: 1.5;
+    border-bottom: 3px solid #1D9E75;
+    padding-bottom: 12px;
+  }
+  h2 {
+    font-size: 1.2rem;
+    margin-top: 2.5em;
+    border-left: 4px solid #1D9E75;
+    padding-left: 10px;
+  }
+  time { color: #888780; font-size: 0.85rem; }
+  figure { margin: 2em 0; }
+  figcaption {
+    font-size: 0.8rem;
+    color: #5f5e5a;
+    text-align: center;
+    margin-top: 8px;
+  }
+  .point {
+    background: #e1f5ee;
+    border-radius: 8px;
+    padding: 14px 18px;
+    margin: 1.5em 0;
+  }
+  .point strong { color: #0F6E56; }
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 0.9rem;
+    margin: 1.5em 0;
+  }
+  th, td {
+    border: 1px solid #d3d1c7;
+    padding: 8px 12px;
+    text-align: left;
+  }
+  th { background: #f1efe8; font-weight: 600; }
+</style>
+</head>
+<body>
+<main>
+<article>
+<h1>F値は「低いほど偉い」ではなかった — 35mm f/1.8が難しかった理由</h1>
+<time datetime="2026-06-11">2026-06-11</time>
+
+<h2>きっかけ: 持っているのに使えないレンズ</h2>
+<p>AF-S 35mm f/1.8Gという単焦点レンズを持っている。「F値は低いほどいいらしい」という評判で手に入れたものの、ズームができず構図に困り、結局あまり持ち出さなくなっていた。そもそも、F値が低いと何がどう変わるのかを自分は説明できなかった。</p>
+
+<h2>F値の正体: 変わるのは2つだけ</h2>
+<p>F値は絞り、つまりレンズの中の「穴の開き具合」を表す数字で、小さいほど穴が大きく開く。穴の大きさで変わるのは次の2つだけだった。</p>
+<p>1つ目は<strong>取り込む光の量</strong>。穴が大きいほど光が多く入るので、暗い場所でもシャッター速度を稼げる。2つ目は<strong>ピントが合う奥行きの厚み(被写界深度)</strong>。穴が大きいほどピントの合う範囲が薄くなり、背景が大きくボケる。</p>
+
+<figure>
+<svg width="100%" viewBox="0 0 680 345" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="F値による絞りの開きとピントが合う範囲の比較図">
+<text x="150" y="42" text-anchor="middle" font-size="15" font-weight="600" fill="#2c2c2a">f/1.8</text>
+<text x="340" y="42" text-anchor="middle" font-size="15" font-weight="600" fill="#2c2c2a">f/5.6</text>
+<text x="530" y="42" text-anchor="middle" font-size="15" font-weight="600" fill="#2c2c2a">f/11</text>
+
+<circle cx="150" cy="112" r="44" fill="#f1efe8" stroke="#888780" stroke-width="1"/>
+<circle cx="150" cy="112" r="34" fill="#FAC775" stroke="#BA7517" stroke-width="0.5"/>
+<circle cx="340" cy="112" r="44" fill="#f1efe8" stroke="#888780" stroke-width="1"/>
+<circle cx="340" cy="112" r="19" fill="#FAC775" stroke="#BA7517" stroke-width="0.5"/>
+<circle cx="530" cy="112" r="44" fill="#f1efe8" stroke="#888780" stroke-width="1"/>
+<circle cx="530" cy="112" r="9" fill="#FAC775" stroke="#BA7517" stroke-width="0.5"/>
+
+<text x="150" y="182" text-anchor="middle" font-size="12" fill="#5f5e5a">光: 多い</text>
+<text x="340" y="182" text-anchor="middle" font-size="12" fill="#5f5e5a">光: 中くらい</text>
+<text x="530" y="182" text-anchor="middle" font-size="12" fill="#5f5e5a">光: 少ない</text>
+
+<rect x="70" y="215" width="160" height="8" rx="4" fill="#e8e6df" stroke="#d3d1c7" stroke-width="0.5"/>
+<rect x="135" y="212" width="30" height="14" rx="4" fill="#5DCAA5" stroke="#0F6E56" stroke-width="0.5"/>
+<rect x="260" y="215" width="160" height="8" rx="4" fill="#e8e6df" stroke="#d3d1c7" stroke-width="0.5"/>
+<rect x="300" y="212" width="80" height="14" rx="4" fill="#5DCAA5" stroke="#0F6E56" stroke-width="0.5"/>
+<rect x="450" y="215" width="160" height="8" rx="4" fill="#e8e6df" stroke="#d3d1c7" stroke-width="0.5"/>
+<rect x="455" y="212" width="150" height="14" rx="4" fill="#5DCAA5" stroke="#0F6E56" stroke-width="0.5"/>
+
+<text x="70" y="248" font-size="12" fill="#5f5e5a">手前</text>
+<text x="230" y="248" text-anchor="end" font-size="12" fill="#5f5e5a">奥</text>
+<text x="260" y="248" font-size="12" fill="#5f5e5a">手前</text>
+<text x="420" y="248" text-anchor="end" font-size="12" fill="#5f5e5a">奥</text>
+<text x="450" y="248" font-size="12" fill="#5f5e5a">手前</text>
+<text x="610" y="248" text-anchor="end" font-size="12" fill="#5f5e5a">奥</text>
+
+<text x="150" y="278" text-anchor="middle" font-size="12" fill="#5f5e5a">背景が大きくボケる</text>
+<text x="340" y="278" text-anchor="middle" font-size="12" fill="#5f5e5a">ほどよくボケる</text>
+<text x="530" y="278" text-anchor="middle" font-size="12" fill="#5f5e5a">全体にピントが合う</text>
+
+<text x="340" y="318" text-anchor="middle" font-size="12" fill="#5f5e5a">緑の帯 = ピントが合う奥行き(被写界深度)。F値が小さいほど薄くなる</text>
+</svg>
+<figcaption>絞りの開き具合と、ピントが合う奥行きの関係</figcaption>
+</figure>
+
+<h2>転回点: 風景はF値を「上げて」撮るジャンルだった</h2>
+<p>ここで自分の前提が崩れた。自分の主戦場である風景や巡礼先のスナップは、手前から奥までピントを通したい写真だ。つまり図の右側、f/8〜11に絞って撮るジャンルで、f/1.8の出番がそもそもない。「低いほどいい」が活きるのは、人物や物を背景から浮かび上がらせたい時と、暗所での手持ち撮影だった。</p>
+<p>もうひとつの違和感、「ズームができず難しい」にも理由があった。APS-C機での35mmはフルサイズ換算52mm。人間の視界に近い標準画角で、風景を広く収めることも、遠くを引き寄せることもできない。風景で欲しくなるのは大抵その両端だ。</p>
+
+<div class="point">
+<strong>難しかったのは腕の問題ではなく、被写体とレンズのミスマッチだった。</strong>
+</div>
+
+<h2>最終的な理解: F値はスペックではなく相性</h2>
+<table>
+<tr><th>撮りたいもの</th><th>F値の使い方</th></tr>
+<tr><td>風景・街並み(全体にピント)</td><td>f/8〜11に絞る。レンズの明るさはほぼ不要</td></tr>
+<tr><td>人物・物撮り(背景をボカす)</td><td>f/1.8〜2.8の低F値が活きる</td></tr>
+<tr><td>夜・暗所の手持ち</td><td>低F値で光を稼ぐ</td></tr>
+</table>
+<p>「F値は低いほどいい」は、ボケと暗所性能を求める人にとっての話で、万人の真理ではなかった。レンズ選びの優先順位は、明るさ(F値)より先に画角(広角か望遠か)。スペックの優劣表で見るのではなく、自分が何を撮るかから逆算する。</p>
+
+<h2>おまけの教訓</h2>
+<p>この理解に至ったのは、ボーナスの使い道を検討していて「次のレンズは何が良いか」を考えたのがきっかけだった。ところが画角の話を突き詰めた結果、出てきた答えは「現状の撮影で実は困っていない」だった。買い物の検討は、候補の比較より先に「自分は何に困っているか」を確かめるところから始めるべき、という当たり前の結論を、レンズの仕組みの勉強から受け取ることになった。</p>
+
+</article>
+</main>
+</body>
+</html>

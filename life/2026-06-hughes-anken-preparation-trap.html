@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>準備は善か ― 「ヒュース案件」と、足踏みを見抜く一つの問い</title>
+  <link rel="stylesheet" href="../style.css">
+  <style>
+    :root {
+      --article-text: #222;
+      --article-muted: #64748b;
+      --article-card: #fff;
+      --article-border: #e5e7eb;
+      --article-soft: #f8fafc;
+      --figure-text: #1f2937;
+      --figure-muted: #64748b;
+      --figure-line: #94a3b8;
+      --figure-neutral: #f1f5f9;
+      --figure-reject: #fef2f2;
+      --figure-reject-line: #fca5a5;
+      --figure-accept: #ecfdf5;
+      --figure-accept-line: #34d399;
+      --figure-accent: #eff6ff;
+      --figure-accent-line: #60a5fa;
+    }
+    .decision-note {
+      background: var(--article-soft);
+      border: 1px solid var(--article-border);
+      border-left: 5px solid #2563eb;
+      border-radius: 12px;
+      padding: 16px 18px;
+    }
+    .decision-figure {
+      margin: 24px 0 8px;
+    }
+    .decision-figure svg {
+      display: block;
+      width: 100%;
+      height: auto;
+      color: var(--figure-text);
+    }
+    .decision-figure figcaption {
+      margin-top: 10px;
+      color: var(--article-muted);
+      font-size: 0.92rem;
+    }
+    .decision-svg-text {
+      fill: var(--figure-text);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+    .decision-svg-muted {
+      fill: var(--figure-muted);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+    .decision-svg-line {
+      stroke: var(--figure-line);
+      stroke-width: 0.5;
+      fill: none;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --article-text: #e5e7eb;
+        --article-muted: #94a3b8;
+        --article-card: #111827;
+        --article-border: #334155;
+        --article-soft: #0f172a;
+        --figure-text: #e5e7eb;
+        --figure-muted: #cbd5e1;
+        --figure-line: #64748b;
+        --figure-neutral: #1e293b;
+        --figure-reject: #3b1f24;
+        --figure-reject-line: #fb7185;
+        --figure-accept: #12372a;
+        --figure-accept-line: #34d399;
+        --figure-accent: #172554;
+        --figure-accent-line: #60a5fa;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="container">
+    <h1>準備は善か ― 「ヒュース案件」と、足踏みを見抜く一つの問い</h1>
+    <p class="meta">Category: life / 思索・習慣・自己分析</p>
+
+    <section class="card">
+      <h2>はじめに</h2>
+      <p>
+        自分には「ヒュース案件」という個人的な合言葉がある。元ネタは『ワールドトリガー』のヒュースで、
+        とくに「期限を決めないと、失敗を失敗として認識できない」という趣旨のセリフが好きだった。
+        計画やトラッカーの作り込み、ロードマップの再整理、比較表の構築――そういう「本番の手前の作業」が
+        いつのまにか主目的になっているとき、自分でそれを呼ぶための言葉として使ってきた。
+      </p>
+      <p>
+        ただ、使っているうちに意味が少しずつ広がり、自分でも輪郭が曖昧になっていた。
+        そこで一度きちんと定義し直したくなった。これはその記録である。
+      </p>
+    </section>
+
+    <section class="card">
+      <h2>最初の前提 ― 準備はすべて善だと思っていた</h2>
+      <p>
+        出発点にあったのは「準備すること自体はいいことだ」という素朴な前提だった。
+        実際、世の中には準備をせずに撃沈する人もいる。それに比べれば、範囲を把握し、
+        環境を整え、手順を固めてから動く自分のやり方は、明らかに堅実な資産のはずだ――そう考えていた。
+      </p>
+      <p>
+        この前提自体は間違っていない。問題は、それを「だから準備は続けるほどよい」へと
+        無自覚に延長してしまうところにあった。
+      </p>
+    </section>
+
+    <section class="card">
+      <h2>対話で変わったこと ― 準備には二種類ある</h2>
+      <p>
+        整理していくうちに見えてきたのは、準備の有無ではなく、
+        <strong>リターンを生む準備か、もう生まない準備か</strong>という区別だった。
+      </p>
+      <p>
+        リターンを生む準備は、本番の質や成功率を一段引き上げる。出題範囲を把握して学習順を決める、
+        ラボ環境を一度整える、再現可能な手順を確立する。これらは一度やれば以後の本番が速く確実になる、
+        回収可能な投資だ。
+      </p>
+      <p>
+        一方で、リターンを生まない準備もある。本番の成功率をもう上げないのに続けてしまうもの――
+        トラッカーの体裁を整え直す、ロードマップを何度も再整理する、比較表をさらに精緻化する。
+        三周目以降のこの種の作業は、たいてい成果のためではなく<strong>安心のため</strong>にやっている。
+        ここが、自分が「ヒュース案件」と呼んでいた領域だった。
+      </p>
+      <p>
+        厄介なのは、安心のための準備が「進捗」の顔をしていることだ。手は動いているし、
+        何かが整っていく。だが本番のタスク――演習、検証、執筆――は一ミリも進んでいない。
+        そして期限が曖昧なままだと、準備をいくら続けても「まだ失敗していない」ことになり、
+        永遠に手前で回遊できてしまう。期限を切ることがブレーキになる、というヒュースの言葉は、
+        まさにこの回遊を断ち切るためのものだったのだと、ここで腑に落ちた。
+      </p>
+    </section>
+
+    <section class="card">
+      <h2>最終的なメンタルモデル ― 一つの問いに畳む</h2>
+      <p>
+        最後に、判定をシンプルな問いに畳み込めた。
+      </p>
+      <p class="decision-note">
+        この準備を今やめて本番に移ったら、結果は実際に悪くなるか？
+      </p>
+      <p>
+        悪くなるなら、それはまだ価値のある準備だ。続けていい。
+        悪くならない、あるいは差がほとんどないなら、それは準備の顔をした足踏みである。
+        準備が「善か悪か」で悩むのをやめ、「もう回収済みか、まだ未回収か」で切ると、迷いが減る。
+      </p>
+    </section>
+
+    <section class="card">
+      <h2>ヒュース案件の定義を固定する</h2>
+      <p>
+        この整理で「ヒュース案件」の定義も固定できた。
+        <strong>準備が本番を食い始めている兆候であり、期限の不在がそれを見えなくしている状態</strong>。
+        この言葉が出てきたら、問うべきは二つだ。いまやっているのは本番か、それとも本番の手前か。
+        終わりの基準と期限はあるか。
+      </p>
+    </section>
+
+    <section class="card">
+      <h2>おわりに</h2>
+      <p>
+        準備をする自分は嫌いではない。撃沈しないための土台は、これからも自分の強みであり続ける。
+        ただ、その土台が目的にすり替わる瞬間だけは、あの一つの問いで見張っていようと思う。
+      </p>
+    </section>
+  </main>
+</body>
+</html>

@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>マネジメントか技術かで迷っていたら、選択肢がそもそも存在しなかった</title>
+  <link rel="stylesheet" href="../style.css">
+  <style>
+    :root {
+      --article-text: #222;
+      --article-muted: #64748b;
+      --article-card: #fff;
+      --article-border: #e5e7eb;
+      --article-soft: #f8fafc;
+      --figure-text: #1f2937;
+      --figure-muted: #64748b;
+      --figure-line: #94a3b8;
+      --figure-neutral: #f1f5f9;
+      --figure-reject: #fef2f2;
+      --figure-reject-line: #fca5a5;
+      --figure-accept: #ecfdf5;
+      --figure-accept-line: #34d399;
+      --figure-accent: #eff6ff;
+      --figure-accent-line: #60a5fa;
+    }
+
+    .decision-note {
+      background: var(--article-soft);
+      border: 1px solid var(--article-border);
+      border-left: 5px solid #2563eb;
+      border-radius: 12px;
+      padding: 16px 18px;
+    }
+
+    .decision-figure {
+      margin: 24px 0 8px;
+    }
+
+    .decision-figure svg {
+      display: block;
+      width: 100%;
+      height: auto;
+      color: var(--figure-text);
+    }
+
+    .decision-figure figcaption {
+      margin-top: 10px;
+      color: var(--article-muted);
+      font-size: 0.92rem;
+    }
+
+    .decision-svg-text {
+      fill: var(--figure-text);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    .decision-svg-muted {
+      fill: var(--figure-muted);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    .decision-svg-line {
+      stroke: var(--figure-line);
+      stroke-width: 0.5;
+      fill: none;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --article-text: #e5e7eb;
+        --article-muted: #94a3b8;
+        --article-card: #111827;
+        --article-border: #334155;
+        --article-soft: #0f172a;
+        --figure-text: #e5e7eb;
+        --figure-muted: #cbd5e1;
+        --figure-line: #64748b;
+        --figure-neutral: #1e293b;
+        --figure-reject: #3b1f24;
+        --figure-reject-line: #fb7185;
+        --figure-accept: #12372a;
+        --figure-accept-line: #34d399;
+        --figure-accent: #172554;
+        --figure-accent-line: #60a5fa;
+      }
+
+      body {
+        color: var(--article-text);
+        background: #020617;
+      }
+
+      .card,
+      .article-card {
+        background: var(--article-card);
+        border-color: var(--article-border);
+        box-shadow: none;
+      }
+
+      .meta,
+      footer {
+        color: var(--article-muted);
+      }
+
+      a {
+        color: #93c5fd;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="container">
+    <p>
+      <a href="../index.html">← Personal Knowledge</a> /
+      <a href="https://agentair.github.io/">Shin infra Lab</a>
+    </p>
+
+    <h1>マネジメントか技術かで迷っていたら、選択肢がそもそも存在しなかった</h1>
+    <p class="meta">2026-09-14 / Category: Life</p>
+
+    <section class="card">
+      <h2>はじめに</h2>
+      <p>
+        部署を移って半年。技術だけに集中でき、テレワークで裁量もある。
+        居心地は悪くない。それでも何かが引っかかっていた。
+        その正体をAIとの対話でほどいていった記録である。
+      </p>
+    </section>
+
+    <section class="card">
+      <h2>いきさつ：なぜキャリアの話になったのか</h2>
+      <p>
+        自己分析のフレームワークを使って対話を始めたところ、
+        「5年後をどう見ているか」という話から思いがけずキャリアの分岐に入り込んだ。
+        最初は資格やスキルの話をするつもりだった。
+      </p>
+    </section>
+
+    <section class="card">
+      <h2>最初の問いの立て方</h2>
+      <p>
+        自分はずっと「マネジメントに進むか、技術で行くか」を決めかねていると思っていた。
+        決断力の問題だと考えていた。
+      </p>
+    </section>
+
+    <section class="card">
+      <h2>問いが成立していなかった</h2>
+      <p>だが対話の中で、自分がこう言っていることに気づかされた。</p>
+      <p class="decision-note">
+        「今の会社にいるのであれば、マネジメントになる必要がある」<br>
+        「この会社で上に行くのはマネジメントをする人だ」
+      </p>
+      <p>
+        これが本当なら、今の会社にいる限り「技術一本」という選択肢は存在しない。
+        存在するのは「マネジメントに進むか」「上がらないことを受け入れるか」
+        「会社を出るか」のいずれかである。
+      </p>
+      <p>
+        迷っていたのではなく、答えのない問いを立て続けていた。
+        <strong>決断力ではなく、問いの立て方の問題だった。</strong>
+      </p>
+    </section>
+
+    <section class="card">
+      <h2>もう一つの見落とし</h2>
+      <p>
+        さらに指摘されて気づいたことがある。
+        自分はマネジメントを一貫して義務として語っていた。
+        「必要だから」「そうしないと上がれないから」と。
+      </p>
+      <p>
+        だが前の職場でリーダーをしていた5年間を振り返ってみると、
+        出てきたのは義務感ではなかった。年々良くなっていったという手応えだった。
+        品質を出せた。相手に無理をさせずに回せた。伝わる形に整えられた。
+        上長からの評価もあった。
+      </p>
+      <p>
+        キャリアの分岐を考えるとき、自分は制度の構造ばかり参照していて、
+        <strong>自分が実際に何をやれたかを判断材料に入れていなかった。</strong>
+      </p>
+    </section>
+
+    <section class="card">
+      <h2>結論：二枚看板を意識的に選ぶ</h2>
+      <p class="decision-note">
+        <strong>会社の中ではマネジメントに進む。<br>
+        技術の到達点は会社の外に置く。</strong>
+      </p>
+      <p>
+        これは妥協ではない。実態としてはすでにこの形になっていた。
+        違うのは、それを意識して選んだかどうかだけである。
+        選んでいない二枚看板は、どちらの判断も先送りにする。
+      </p>
+    </section>
+
+    <footer>
+      <p>AgentAir / Personal Knowledge</p>
+      <p><a href="../index.html">Personal Knowledgeへ戻る</a></p>
+    </footer>
+  </main>
+</body>
+</html>
